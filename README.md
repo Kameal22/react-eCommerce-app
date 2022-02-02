@@ -1,6 +1,11 @@
 # MERN stack eCommerce typescript app with basic backend setup for Front end portfolio purposes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Packages installed
+
+1. Axios,
+2. Sass,
+3. Formik,
+4. Typescrpit
 
 ## Available Scripts
 

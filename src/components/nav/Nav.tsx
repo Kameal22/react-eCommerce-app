@@ -1,12 +1,14 @@
-import  React from "react";
-import './styles/App.css';
+import React from "react";
+import "../../styles/navStyles/nav.scss";
 
-const Nav: React.FC = () =>{
-  return(
+const Nav: React.FC = () => {
+  const test: string = "Navbar";
+
+  return (
     <div className="App">
-      <h1>Navbar</h1>
+      <h1>{test}</h1>
     </div>
-  )
-}
+  );
+};
 
 export default Nav;
