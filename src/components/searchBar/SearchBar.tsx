@@ -10,7 +10,7 @@ const SearchBar: React.FC = () => {
       <i className="bi bi-controller"></i>
       <i className="bi bi-cpu"></i>
       <i className="bi bi-tv"></i>
-      <i className="bi bi-usb-plug"></i>
+      <i className="bi bi-headphones"></i>
     </div>
   );
 };

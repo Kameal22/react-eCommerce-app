@@ -6,7 +6,9 @@
 2. Sass,
 3. Formik,
 4. Typescrpit,
-5. Bootstrap icons
+5. Bootstrap icons,
+6. Mongoose,
+7. Express
 
 ## Available Scripts
 
