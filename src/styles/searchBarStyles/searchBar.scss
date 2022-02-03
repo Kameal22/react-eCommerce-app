@@ -1,0 +1,8 @@
+@import "../mixins/mixins.scss";
+
+.searchBar {
+  @include flexCenter(space-around);
+  @include marginCenter();
+  width: 80%;
+  border-bottom: 2px solid green;
+}

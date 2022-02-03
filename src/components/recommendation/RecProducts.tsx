@@ -3,8 +3,15 @@ import "../../styles/recommendationStyles/recProducts.scss";
 
 const RecProducts: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Products</h1>
+    <div className="recProducts">
+      <h1>Rec product</h1>
+      <h1>Rec product</h1>
+      <h1>Rec product</h1>
+      <h1>Rec product</h1>
+      <h1>Rec product</h1>
+      <h1>Rec product</h1>
+      <h1>Rec product</h1>
+      <h1>Rec product</h1>
     </div>
   );
 };

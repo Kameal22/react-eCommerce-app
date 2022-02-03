@@ -1,0 +1,10 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: $direction;
+  align-items: center;
+}
+
+@mixin marginCenter() {
+  margin-left: auto;
+  margin-right: auto;
+}

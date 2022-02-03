@@ -1,0 +1,9 @@
+@import "../mixins/mixins.scss";
+
+.recProducts {
+  @include marginCenter();
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80%;
+  border-bottom: 2px solid green;
+}

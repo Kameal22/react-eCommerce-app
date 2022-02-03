@@ -5,7 +5,8 @@
 1. Axios,
 2. Sass,
 3. Formik,
-4. Typescrpit
+4. Typescrpit,
+5. Bootstrap icons
 
 ## Available Scripts
 

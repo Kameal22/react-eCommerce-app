@@ -1,12 +1,16 @@
 import React from "react";
 import "../../styles/navStyles/nav.scss";
+import NavLogo from "./NavLogo";
+import NavSearchForm from "./NavSearchForm";
+import NavIcons from "./NavMenu";
+import "bootstrap-icons/font/bootstrap-icons.css"; //Icons import, now it works
 
 const Nav: React.FC = () => {
-  const test: string = "Navbar";
-
   return (
-    <div className="App">
-      <h1>{test}</h1>
+    <div className="nav">
+      <NavLogo />
+      <NavSearchForm />
+      <NavIcons />
     </div>
   );
 };
