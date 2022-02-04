@@ -8,7 +8,8 @@
 4. Typescrpit,
 5. Bootstrap icons,
 6. Mongoose,
-7. Express
+7. Express,
+8. Cors
 
 ## Available Scripts
 
