@@ -1,0 +1,6 @@
+@import "../mixins/mixins.scss";
+
+.footerDiv {
+  width: 80%;
+  @include marginCenter();
+}

@@ -1,0 +1,19 @@
+Single page app with react router.
+
+Your account in nav should:
+1. not logged in - redirect to registration component
+2. logged in - redirect to users profile.
+
+Your wishlist:
+1. not logged in - redirect to registration component
+2. logged in - redirest to wishlist component
+
+Cart:
+Redirect to cart component.
+
+ADD ICONS TO NAV MENU COMPONENT!!!!
+
+Every "page" should have NAV component inside it. Consider this while doing routes.
+Nav and footer should be some kind of a "global" component
+
+Need a Main View component for routing to /

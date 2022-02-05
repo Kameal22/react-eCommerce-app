@@ -9,7 +9,8 @@
 5. Bootstrap icons,
 6. Mongoose,
 7. Express,
-8. Cors
+8. Cors,
+9. React Router
 
 ## Available Scripts
 

@@ -1,11 +1,12 @@
 import React from "react";
 
-const Register: React.FC = () => {
+const Cart: React.FC = () => {
+
   return (
     <div className="navLogo">
-      <h1>Register</h1>
+      <h1>Your cart</h1>
     </div>
   );
 };
 
-export default Register;
+export default Cart;
