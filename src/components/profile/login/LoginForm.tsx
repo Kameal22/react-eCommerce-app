@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../styles/profileStyles/loginForm.scss";
 
 const LoginForm: React.FC = () => {
   return (

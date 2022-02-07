@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../styles/profileStyles/registrationForm.scss";
 
 const RegisterForm: React.FC = () => {
   return (
