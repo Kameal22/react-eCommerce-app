@@ -1,4 +1,6 @@
+@import "../mixins/mixins.scss";
+
 .navSearchForm {
   flex-grow: 2;
-  text-align: center;
+  @include flexCenter(space-around);
 }
