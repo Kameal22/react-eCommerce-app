@@ -7,15 +7,21 @@ const NavMenu: React.FC = () => {
   return (
     <div className="navMenu">
       <div className="yourAccDiv">
-        <h5>Your account</h5>
+        <Link to="/register" className="navLink">
+          <h5 className="navMenuLink">Create account</h5>
+        </Link>
         <i className="bi bi-person"></i>
       </div>
       <div className="yourWishDiv">
-        <h5>Your wishlist</h5>
+        <Link to="/login" className="navLink">
+          <h5 className="navMenuLink">Log in</h5>
+        </Link>
         <i className="bi bi-heart"></i>
       </div>
       <div className="cartDiv">
-        <h5>Cart</h5>
+        <Link to="/cart" className="navLink">
+          <h5 className="navMenuLink">Cart</h5>
+        </Link>
         <i className="bi bi-cart"></i>
       </div>
     </div>
