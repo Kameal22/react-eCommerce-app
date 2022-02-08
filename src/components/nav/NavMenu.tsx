@@ -6,21 +6,21 @@ const NavMenu: React.FC = () => {
   // If logged in - menu stays the same, if not - Create account, Log in, Cart
   return (
     <div className="navMenu">
-      <div className="yourAccDiv">
+      <div className="createAccDiv">
         <Link to="/register" className="navLink">
-          <h5 className="navMenuLink">Create account</h5>
+          <h4 className="navMenuLink">Create account</h4>
         </Link>
         <i className="bi bi-person"></i>
       </div>
-      <div className="yourWishDiv">
+      <div className="logInDiv">
         <Link to="/login" className="navLink">
-          <h5 className="navMenuLink">Log in</h5>
+          <h4 className="navMenuLink">Log in</h4>
         </Link>
         <i className="bi bi-heart"></i>
       </div>
       <div className="cartDiv">
         <Link to="/cart" className="navLink">
-          <h5 className="navMenuLink">Cart</h5>
+          <h4 className="navMenuLink">Cart</h4>
         </Link>
         <i className="bi bi-cart"></i>
       </div>

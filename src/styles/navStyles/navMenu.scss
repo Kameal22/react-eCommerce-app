@@ -6,12 +6,37 @@
   display: flex;
 }
 
-.navMenu > div {
-  @include flexCenter(space-around);
-  width: 100%;
-}
-
 .navLink {
   text-decoration: none;
   color: black;
+}
+
+.createAccDiv {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.createAccDiv i {
+  margin-left: 1em;
+}
+
+.logInDiv {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logInDiv i {
+  margin-left: 1em;
+}
+
+.cartDiv {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.cartDiv i {
+  margin-left: 1em;
 }
