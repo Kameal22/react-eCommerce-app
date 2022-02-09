@@ -10,7 +10,9 @@
 6. Mongoose,
 7. Express,
 8. Cors,
-9. React Router
+9. React Router,
+10. Yup,
+11. Bootstrap
 
 ## Available Scripts
 

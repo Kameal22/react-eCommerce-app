@@ -4,6 +4,10 @@
   min-height: 100vh;
 }
 
+.registerHeading {
+  text-align: center;
+}
+
 .registerNav {
   @include flexCenter(space-between);
   @include marginCenter();
@@ -11,15 +15,21 @@
   border-bottom: 2px solid grey;
 }
 
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  min-height: 55%;
+  justify-content: space-between;
+  margin-top: 6vh;
+}
+
 .registerFormDiv {
   border: 2px solid grey;
   border-radius: 10px;
-  @include flexCenter(space-between);
   @include marginCenter();
   margin-top: 6vh;
-  flex-direction: column;
   width: 25%;
-  height: 60vh;
+  height: 70vh;
 }
 
 .registerFormInput {
@@ -27,6 +37,23 @@
   padding: 15px 15px;
   border: 2px solid grey;
   display: block;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formSubmitBtn {
+  width: 30%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  background-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formError {
+  color: red;
+  font-size: 0.8em;
 }
 
 ::placeholder {
