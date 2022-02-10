@@ -5,18 +5,10 @@ import NavLogo from "../../nav/NavLogo";
 import * as Yup from "yup";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles({
-  formBtn: {
-    width: "25%",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-});
+import { FormControlLabel } from "@mui/material";
+import { Checkbox } from "@mui/material";
 
 const RegisterForm: React.FC = () => {
-  const classes = useStyles();
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string | null>("");
   const [email, setEmail] = useState<string>("");
@@ -29,7 +21,7 @@ const RegisterForm: React.FC = () => {
       surname: "",
       email: "",
       password: "",
-      toggle: false,
+      acceptTerms: false,
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -40,6 +32,10 @@ const RegisterForm: React.FC = () => {
       password: Yup.string()
         .min(6, "Must be at least 6 characters")
         .required("Required"),
+      acceptTerms: Yup.bool().oneOf(
+        [true],
+        "Accept Terms & Conditions is required"
+      ),
     }),
     onSubmit: (values) => {
       const inputName = values.name;
@@ -82,7 +78,7 @@ const RegisterForm: React.FC = () => {
             ) : null}
             <TextField
               id="standard-basic"
-              label="Standard"
+              label="Surname"
               variant="standard"
               className="registerFormInput"
               name="surname"
@@ -101,7 +97,7 @@ const RegisterForm: React.FC = () => {
             ) : null}
             <TextField
               id="standard-basic"
-              label="Standard"
+              label="Email"
               variant="standard"
               className="registerFormInput"
               name="email"
@@ -121,7 +117,7 @@ const RegisterForm: React.FC = () => {
             ) : null}
             <TextField
               id="standard-basic"
-              label="Standard"
+              label="Password"
               variant="standard"
               className="registerFormInput"
               name="password"
@@ -140,7 +136,16 @@ const RegisterForm: React.FC = () => {
               <p className="formError">{formik.errors.password}</p>
             ) : null}
           </div>
-          <Button variant="contained" className={classes.formBtn} type="submit">
+          <FormControlLabel
+            control={<Checkbox />}
+            label="Agree to terms and conditions"
+            name="acceptTerms"
+            className="registrationToggle"
+          />
+          {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
+            <p className="formError">{formik.errors.acceptTerms}</p>
+          ) : null}
+          <Button variant="contained" className="registerBtn" type="submit">
             Register
           </Button>
         </form>
