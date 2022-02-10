@@ -3,12 +3,25 @@ import "../../../styles/profileStyles/registrationForm.scss";
 import { useFormik } from "formik";
 import NavLogo from "../../nav/NavLogo";
 import * as Yup from "yup";
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  formBtn: {
+    width: "25%",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+});
 
 const RegisterForm: React.FC = () => {
+  const classes = useStyles();
   const [name, setName] = useState<string>("");
   const [surname, setSurname] = useState<string | null>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [toggler, setToggler] = useState<boolean>(false);
 
   const formik = useFormik({
     initialValues: {
@@ -16,6 +29,7 @@ const RegisterForm: React.FC = () => {
       surname: "",
       email: "",
       password: "",
+      toggle: false,
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -44,81 +58,91 @@ const RegisterForm: React.FC = () => {
       </div>
       <div className="registerFormDiv">
         <h1 className="registerHeading">Register</h1>
-        <form onSubmit={formik.handleSubmit} className="registerForm">
-          <input
-            className="registerFormInput"
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Enter name"
-            style={
-              formik.touched.name && formik.errors.name
-                ? { borderColor: "red" }
-                : { borderColor: "grey" }
-            }
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          ></input>
-          {formik.touched.name && formik.errors.name ? (
-            <p className="formError">{formik.errors.name}</p>
-          ) : null}
-          <input
-            className="registerFormInput"
-            id="surname"
-            name="surname"
-            type="text"
-            placeholder="Enter surname"
-            style={
-              formik.touched.surname && formik.errors.surname
-                ? { borderColor: "red" }
-                : { borderColor: "grey" }
-            }
-            value={formik.values.surname}
-            onChange={formik.handleChange}
-          ></input>
-          {formik.touched.surname && formik.errors.surname ? (
-            <p className="formError">{formik.errors.surname}</p>
-          ) : null}
-          <input
-            className="registerFormInput"
-            id="email"
-            name="email"
-            type="text"
-            placeholder="Enter email"
-            style={
-              formik.touched.email && formik.errors.email
-                ? { borderColor: "red" }
-                : { borderColor: "grey" }
-            }
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          ></input>
-          {formik.touched.email && formik.errors.email ? (
-            <p className="formError">{formik.errors.email}</p>
-          ) : null}
-          <input
-            className="registerFormInput"
-            id="password"
-            name="password"
-            type="text"
-            placeholder="Enter password"
-            style={
-              formik.touched.password && formik.errors.password
-                ? { borderColor: "red" }
-                : { borderColor: "grey" }
-            }
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          ></input>
-          {formik.touched.password && formik.errors.password ? (
-            <p className="formError">{formik.errors.password}</p>
-          ) : null}
-          <button className="formSubmitBtn" type="submit">
+        <form onSubmit={formik.handleSubmit}>
+          <div className="registerFormInputs">
+            <TextField
+              id="standard-basic"
+              label="Name"
+              variant="standard"
+              className="registerFormInput"
+              name="name"
+              type="text"
+              placeholder="Enter name"
+              style={
+                formik.touched.name && formik.errors.name
+                  ? { borderColor: "red" }
+                  : { borderColor: "grey" }
+              }
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.name && formik.errors.name ? (
+              <p className="formError">{formik.errors.name}</p>
+            ) : null}
+            <TextField
+              id="standard-basic"
+              label="Standard"
+              variant="standard"
+              className="registerFormInput"
+              name="surname"
+              type="text"
+              placeholder="Enter surname"
+              style={
+                formik.touched.surname && formik.errors.surname
+                  ? { borderColor: "red" }
+                  : { borderColor: "grey" }
+              }
+              value={formik.values.surname}
+              onChange={formik.handleChange}
+            />
+            {formik.touched.surname && formik.errors.surname ? (
+              <p className="formError">{formik.errors.surname}</p>
+            ) : null}
+            <TextField
+              id="standard-basic"
+              label="Standard"
+              variant="standard"
+              className="registerFormInput"
+              name="email"
+              type="text"
+              placeholder="Enter email"
+              style={
+                formik.touched.email && formik.errors.email
+                  ? { borderColor: "red" }
+                  : { borderColor: "grey" }
+              }
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <p className="formError">{formik.errors.email}</p>
+            ) : null}
+            <TextField
+              id="standard-basic"
+              label="Standard"
+              variant="standard"
+              className="registerFormInput"
+              name="password"
+              type="text"
+              placeholder="Enter password"
+              style={
+                formik.touched.password && formik.errors.password
+                  ? { borderColor: "red" }
+                  : { borderColor: "grey" }
+              }
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.password && formik.errors.password ? (
+              <p className="formError">{formik.errors.password}</p>
+            ) : null}
+          </div>
+          <Button variant="contained" className={classes.formBtn} type="submit">
             Register
-          </button>
+          </Button>
         </form>
       </div>
     </div>

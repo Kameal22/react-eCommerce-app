@@ -15,14 +15,6 @@
   border-bottom: 2px solid grey;
 }
 
-.registerForm {
-  display: flex;
-  flex-direction: column;
-  min-height: 55%;
-  justify-content: space-between;
-  margin-top: 6vh;
-}
-
 .registerFormDiv {
   border: 2px solid grey;
   border-radius: 10px;
@@ -32,23 +24,16 @@
   height: 70vh;
 }
 
-.registerFormInput {
-  border-radius: 10px;
-  padding: 15px 15px;
-  border: 2px solid grey;
-  display: block;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+.registerFormInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6vh;
 }
 
-.formSubmitBtn {
-  width: 30%;
-  padding: 10px 10px;
-  border-radius: 10px;
-  background-color: transparent;
-  margin-left: auto;
-  margin-right: auto;
+.registerFormInput {
+  width: 70%;
 }
 
 .formError {

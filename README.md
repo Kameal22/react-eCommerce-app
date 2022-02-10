@@ -12,7 +12,8 @@
 8. Cors,
 9. React Router,
 10. Yup,
-11. Bootstrap
+11. Bootstrap,
+12. Material UI
 
 ## Available Scripts
 
