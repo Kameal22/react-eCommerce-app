@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import { FormControlLabel } from "@mui/material";
 import { Checkbox } from "@mui/material";
+import Footer from "../../footer/Footer";
 
 const RegisterForm: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -64,11 +65,6 @@ const RegisterForm: React.FC = () => {
               name="name"
               type="text"
               placeholder="Enter name"
-              style={
-                formik.touched.name && formik.errors.name
-                  ? { borderColor: "red" }
-                  : { borderColor: "grey" }
-              }
               value={formik.values.name}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -84,11 +80,6 @@ const RegisterForm: React.FC = () => {
               name="surname"
               type="text"
               placeholder="Enter surname"
-              style={
-                formik.touched.surname && formik.errors.surname
-                  ? { borderColor: "red" }
-                  : { borderColor: "grey" }
-              }
               value={formik.values.surname}
               onChange={formik.handleChange}
             />
@@ -103,11 +94,6 @@ const RegisterForm: React.FC = () => {
               name="email"
               type="text"
               placeholder="Enter email"
-              style={
-                formik.touched.email && formik.errors.email
-                  ? { borderColor: "red" }
-                  : { borderColor: "grey" }
-              }
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -123,11 +109,6 @@ const RegisterForm: React.FC = () => {
               name="password"
               type="text"
               placeholder="Enter password"
-              style={
-                formik.touched.password && formik.errors.password
-                  ? { borderColor: "red" }
-                  : { borderColor: "grey" }
-              }
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -149,6 +130,9 @@ const RegisterForm: React.FC = () => {
             Register
           </Button>
         </form>
+      </div>
+      <div className="footerDiv">
+        <Footer />
       </div>
     </div>
   );

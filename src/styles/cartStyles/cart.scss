@@ -1,0 +1,11 @@
+@import "../mixins/mixins.scss";
+
+.shoppingCartDiv {
+  min-height: 100vh;
+}
+
+.usersCartDiv {
+  @include marginCenter();
+  width: 80%;
+  border-bottom: 2px solid grey;
+}

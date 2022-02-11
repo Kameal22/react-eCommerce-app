@@ -2,6 +2,8 @@
 
 .registerDiv {
   min-height: 100vh;
+  @include flexCenter(space-between);
+  flex-direction: column;
 }
 
 .registerHeading {
@@ -21,7 +23,7 @@
   @include marginCenter();
   margin-top: 6vh;
   width: 25%;
-  height: 70vh;
+  min-height: 70vh;
 }
 
 .registerFormInputs {

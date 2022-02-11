@@ -1,0 +1,36 @@
+@import "../mixins/mixins.scss";
+
+.loginHeading {
+  text-align: center;
+}
+
+.loginFormDiv {
+  border: 2px solid grey;
+  border-radius: 10px;
+  @include marginCenter();
+  margin-top: 6vh;
+  width: 25%;
+  height: 50vh;
+}
+
+.loginFormInputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6vh;
+}
+
+.loginFormInput {
+  width: 70%;
+}
+
+.loginBtn {
+  display: block !important;
+  margin: 6vh auto !important;
+}
+
+.formError {
+  color: red;
+  font-size: 0.8em;
+}
