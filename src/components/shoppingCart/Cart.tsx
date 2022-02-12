@@ -15,6 +15,8 @@ const Cart: React.FC = () => {
       </div>
       <div className="usersCartDiv">
         <h2>YOUR CART(num items)</h2>
+        <i className="bi bi-trash"></i>
+        <h3>Clear cart</h3>
         <CartItem />
         <CartSummary />
         <AditionalCartInfo />
