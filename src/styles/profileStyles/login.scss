@@ -2,6 +2,4 @@
 
 .logginInDiv {
   min-height: 100vh;
-  @include flexCenter(space-between);
-  flex-direction: column;
 }

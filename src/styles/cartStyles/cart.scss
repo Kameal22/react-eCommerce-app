@@ -1,11 +1,45 @@
 @import "../mixins/mixins.scss";
 
-.shoppingCartDiv {
+.cart {
   min-height: 100vh;
 }
 
 .usersCartDiv {
+  width: 50%;
+  padding: 10px 10px;
+  border: 1px solid grey;
+  border-radius: 15px;
+}
+
+.cartNav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clearCartDiv {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearCartDiv i {
+  margin-right: 1em;
+  border-bottom: 1px solid grey;
+}
+
+.cartAndSummaryDiv {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
   @include marginCenter();
-  width: 80%;
-  border-bottom: 2px solid grey;
+  margin-top: 4vh;
+}
+
+.yourCartHeading {
+  border-bottom: 1px solid grey;
+}
+
+.clearCartHeading {
+  border-bottom: 1px solid grey;
 }

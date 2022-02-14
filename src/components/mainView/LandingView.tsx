@@ -6,6 +6,7 @@ import SearchBar from "../searchBar/SearchBar";
 import WebsiteInfo from "../websiteInfo/WebsiteInfo";
 import "../../styles/mainView/mainView.scss";
 import Footer from "../footer/Footer";
+import LastWatched from "../lastWatched/LastWatched";
 
 const LandingView: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const LandingView: React.FC = () => {
       <SearchBar />
       <AdvBanner />
       <RecProducts />
+      <LastWatched />
       <WebsiteInfo />
       <Footer />
     </div>

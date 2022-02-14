@@ -1,3 +1,45 @@
-.shoppingCartSummaryDiv {
+@import "../mixins/mixins.scss";
+
+.aditionalCartInfoDiv {
+  @include marginCenter();
+  margin-top: 10vh;
+  width: 80%;
   display: flex;
+  border: 1px solid grey;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.safeShopping {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.safeShopping i {
+  margin-right: 1em;
+}
+
+.return {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.return i {
+  margin-right: 1em;
+}
+
+.technicalSupport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.technicalSupport i {
+  margin-right: 1em;
 }

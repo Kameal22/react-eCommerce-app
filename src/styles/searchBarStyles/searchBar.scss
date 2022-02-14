@@ -6,3 +6,14 @@
   width: 80%;
   border-bottom: 2px solid green;
 }
+
+.searchBar div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.searchBar div p {
+  margin-left: 2em;
+}
