@@ -3,8 +3,10 @@ import "../../styles/recommendationStyles/recProduct.scss";
 
 const RecProduct: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Product</h1>
+    <div className="recProduct">
+      <h1>Img</h1>
+      <h2>Description</h2>
+      <h3>Price</h3>
     </div>
   );
 };

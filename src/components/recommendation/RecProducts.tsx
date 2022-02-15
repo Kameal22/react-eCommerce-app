@@ -1,17 +1,18 @@
 import React from "react";
 import "../../styles/recommendationStyles/recProducts.scss";
+import RecProduct from "./RecProduct";
 
 const RecProducts: React.FC = () => {
   return (
     <div className="recProducts">
-      <h1>Rec product</h1>
-      <h1>Rec product</h1>
-      <h1>Rec product</h1>
-      <h1>Rec product</h1>
-      <h1>Rec product</h1>
-      <h1>Rec product</h1>
-      <h1>Rec product</h1>
-      <h1>Rec product</h1>
+      <RecProduct />
+      <RecProduct />
+      <RecProduct />
+      <RecProduct />
+      <RecProduct />
+      <RecProduct />
+      <RecProduct />
+      <RecProduct />
     </div>
   );
 };

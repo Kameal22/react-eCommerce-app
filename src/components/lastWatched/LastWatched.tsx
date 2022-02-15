@@ -1,14 +1,14 @@
 import React from "react";
 import "../../styles/lastWatchedStyles/lastWatched.scss";
+import LastWatchedProduct from "./LastWatchedProduct";
 
 const LastWatched: React.FC = () => {
   return (
     <div className="lastWatchedDiv">
-      <h1>Lately watched products</h1>
-      <h1>Lately watched products</h1>
-      <h1>Lately watched products</h1>
-      <h1>Lately watched products</h1>
-      <h1>Lately watched products</h1>
+      <LastWatchedProduct />
+      <LastWatchedProduct />
+      <LastWatchedProduct />
+      <LastWatchedProduct />
     </div>
   );
 };
