@@ -2,20 +2,22 @@ import React from "react";
 import "./styles/App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingView from "./components/mainView/LandingView";
-import RegisterForm from "./components/profile/registration/RegisterForm";
 import LoginForm from "./components/profile/login/LoginForm";
 import Cart from "./components/shoppingCart/Cart";
 import Wishlist from "./components/profile/userProfile/Wishlist";
 import Profile from "./components/profile/userProfile/Profile";
 import LogIn from "./components/profile/login/Login";
+import Register from "./components/profile/registration/Register";
+import { LogInProvider } from "./contexts/LoggedInContext";
 
 const App: React.FC = () => {
   return (
+    <LogInProvider>
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingView />} />
-          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/loginForm" element={<LoginForm />} />
           <Route path="/wishlist" element={<Wishlist />} />
@@ -24,6 +26,7 @@ const App: React.FC = () => {
         </Routes>
       </BrowserRouter>
     </div>
+    </LogInProvider>
   );
 };
 

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import "../../../styles/profileStyles/registrationForm.scss";
 import { useFormik } from "formik";
-import NavLogo from "../../nav/NavLogo";
 import * as Yup from "yup";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import { FormControlLabel } from "@mui/material";
 import { Checkbox } from "@mui/material";
-import Footer from "../../footer/Footer";
 
 const RegisterForm: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -49,10 +47,6 @@ const RegisterForm: React.FC = () => {
   });
 
   return (
-    <div className="registerDiv">
-      <div className="registerNav">
-        <NavLogo />
-      </div>
       <div className="registerFormDiv">
         <h1 className="registerHeading">Register</h1>
         <form onSubmit={formik.handleSubmit}>
@@ -131,10 +125,6 @@ const RegisterForm: React.FC = () => {
           </Button>
         </form>
       </div>
-      <div className="footerDiv">
-        <Footer />
-      </div>
-    </div>
   );
 };
 
