@@ -47,84 +47,84 @@ const RegisterForm: React.FC = () => {
   });
 
   return (
-      <div className="registerFormDiv">
-        <h1 className="registerHeading">Register</h1>
-        <form onSubmit={formik.handleSubmit}>
-          <div className="registerFormInputs">
-            <TextField
-              id="standard-basic"
-              label="Name"
-              variant="standard"
-              className="registerFormInput"
-              name="name"
-              type="text"
-              placeholder="Enter name"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.name && formik.errors.name ? (
-              <p className="formError">{formik.errors.name}</p>
-            ) : null}
-            <TextField
-              id="standard-basic"
-              label="Surname"
-              variant="standard"
-              className="registerFormInput"
-              name="surname"
-              type="text"
-              placeholder="Enter surname"
-              value={formik.values.surname}
-              onChange={formik.handleChange}
-            />
-            {formik.touched.surname && formik.errors.surname ? (
-              <p className="formError">{formik.errors.surname}</p>
-            ) : null}
-            <TextField
-              id="standard-basic"
-              label="Email"
-              variant="standard"
-              className="registerFormInput"
-              name="email"
-              type="text"
-              placeholder="Enter email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <p className="formError">{formik.errors.email}</p>
-            ) : null}
-            <TextField
-              id="standard-basic"
-              label="Password"
-              variant="standard"
-              className="registerFormInput"
-              name="password"
-              type="text"
-              placeholder="Enter password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <p className="formError">{formik.errors.password}</p>
-            ) : null}
-          </div>
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Agree to terms and conditions"
-            name="acceptTerms"
-            className="registrationToggle"
+    <div className="registerFormDiv">
+      <h1 className="registerHeading">Register</h1>
+      <form onSubmit={formik.handleSubmit}>
+        <div className="registerFormInputs">
+          <TextField
+            id="standard-basic"
+            label="Name"
+            variant="standard"
+            className="registerFormInput"
+            name="name"
+            type="text"
+            placeholder="Enter name"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
-          {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
-            <p className="formError">{formik.errors.acceptTerms}</p>
+          {formik.touched.name && formik.errors.name ? (
+            <p className="formError">{formik.errors.name}</p>
           ) : null}
-          <Button variant="contained" className="registerBtn" type="submit">
-            Register
-          </Button>
-        </form>
-      </div>
+          <TextField
+            id="standard-basic"
+            label="Surname"
+            variant="standard"
+            className="registerFormInput"
+            name="surname"
+            type="text"
+            placeholder="Enter surname"
+            value={formik.values.surname}
+            onChange={formik.handleChange}
+          />
+          {formik.touched.surname && formik.errors.surname ? (
+            <p className="formError">{formik.errors.surname}</p>
+          ) : null}
+          <TextField
+            id="standard-basic"
+            label="Email"
+            variant="standard"
+            className="registerFormInput"
+            name="email"
+            type="text"
+            placeholder="Enter email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.email && formik.errors.email ? (
+            <p className="formError">{formik.errors.email}</p>
+          ) : null}
+          <TextField
+            id="standard-basic"
+            label="Password"
+            variant="standard"
+            className="registerFormInput"
+            name="password"
+            type="text"
+            placeholder="Enter password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <p className="formError">{formik.errors.password}</p>
+          ) : null}
+        </div>
+        <FormControlLabel
+          control={<Checkbox />}
+          label="Agree to terms and conditions"
+          name="acceptTerms"
+          className="registrationToggle"
+        />
+        {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
+          <p className="formError">{formik.errors.acceptTerms}</p>
+        ) : null}
+        <Button variant="contained" className="registerBtn" type="submit">
+          Register
+        </Button>
+      </form>
+    </div>
   );
 };
 
