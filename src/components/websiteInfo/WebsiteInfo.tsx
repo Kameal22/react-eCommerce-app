@@ -3,7 +3,7 @@ import "../../styles/websiteInfoStyles/websiteInfo.scss";
 
 const WebsiteInfo: React.FC = () => {
   return (
-    <div className="searchBar">
+    <div className="websiteInfoDiv">
       <h1>This component will contain info about this website</h1>
       <h2>
         Make for portfolio purposes, backend is very simple and i'm not apiring

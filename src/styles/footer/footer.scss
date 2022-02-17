@@ -3,4 +3,6 @@
 .footerDiv {
   width: 80%;
   @include marginCenter();
+  display: flex;
+  justify-content: space-between;
 }

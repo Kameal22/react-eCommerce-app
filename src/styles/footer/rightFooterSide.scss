@@ -1,0 +1,39 @@
+.rightFooterDiv {
+  flex-grow: 1;
+  padding-right: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.rightFooterDiv p {
+  font-size: 1.1em;
+}
+
+.contactPhone {
+  display: flex;
+  width: 35%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.contactEmail {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.contactGeo {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.contactIcons {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-around;
+}
