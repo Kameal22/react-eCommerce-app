@@ -4,15 +4,17 @@ import "../../styles/websiteInfoStyles/websiteInfo.scss";
 const WebsiteInfo: React.FC = () => {
   return (
     <div className="websiteInfoDiv">
-      <h1>This component will contain info about this website</h1>
-      <h2>
-        Make for portfolio purposes, backend is very simple and i'm not apiring
-        to be fullstack ATM etc.
+      <h2 className="firstWebsiteInfo">
+        This website is created for front end portfolio purposes.
       </h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum
-        voluptates, aut optio atque tenetur maxime! Laudantium est quis tenetur
-        ullam?
+      <h3 className="scdWebsiteInfo">
+        Both backend and frontend were developed by myself, but it's mostly
+        about showing my front end skills to seek for a job oportunity.
+      </h3>
+      <p className="thirdWebsiteInfo">
+        This is my biggest project so far, it contains all my skillset combined.
+        I'm always looking to improve my programming skills and I'd love to
+        learn from expierienced developers in a company
       </p>
     </div>
   );

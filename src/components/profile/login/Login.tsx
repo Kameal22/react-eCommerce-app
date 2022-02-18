@@ -13,7 +13,9 @@ const LogIn: React.FC = () => {
         <NavLogo />
       </div>
       <LoginForm />
-      <Footer />
+      <div className="loginFooterDiv">
+        <Footer />
+      </div>
     </div>
   );
 };

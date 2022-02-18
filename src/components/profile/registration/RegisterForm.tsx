@@ -77,9 +77,6 @@ const RegisterForm: React.FC = () => {
             value={formik.values.surname}
             onChange={formik.handleChange}
           />
-          {formik.touched.surname && formik.errors.surname ? (
-            <p className="formError">{formik.errors.surname}</p>
-          ) : null}
           <TextField
             id="standard-basic"
             label="Email"
@@ -118,7 +115,7 @@ const RegisterForm: React.FC = () => {
           className="registrationToggle"
         />
         {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
-          <p className="formError">{formik.errors.acceptTerms}</p>
+          <p className="formErrorTerms">{formik.errors.acceptTerms}</p>
         ) : null}
         <Button variant="contained" className="registerBtn" type="submit">
           Register
