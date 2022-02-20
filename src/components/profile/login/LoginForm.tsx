@@ -4,23 +4,35 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
+import axios from "axios";
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      name: "",
       password: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().email("Invalid email address").required("Required"),
+      name: Yup.string().required("Required"),
       password: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
-      const inputEmail = values.email;
+      const inputName = values.name;
       const inputPassword = values.password;
+
+      axios.post("http://localhost:3000/login", {
+        name: inputName,
+        password: inputPassword
+      })
+        .then(res => {
+          console.log(res)
+        })
+        .catch(res => {
+          console.log(res)
+        })
       formik.resetForm();
     },
   });
@@ -32,18 +44,18 @@ const LoginForm: React.FC = () => {
         <div className="loginFormInputs">
           <TextField
             id="standard-basic"
-            label="Email"
+            label="Name"
             variant="standard"
             className="loginFormInput"
-            name="email"
+            name="name"
             type="text"
-            placeholder="Enter email"
-            value={formik.values.email}
+            placeholder="Enter name"
+            value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
-          {formik.touched.email && formik.errors.email ? (
-            <p className="formError">{formik.errors.email}</p>
+          {formik.touched.name && formik.errors.name ? (
+            <p className="formError">{formik.errors.name}</p>
           ) : null}
           <TextField
             id="standard-basic"
@@ -51,7 +63,7 @@ const LoginForm: React.FC = () => {
             variant="standard"
             className="loginFormInput"
             name="password"
-            type="text"
+            type="password"
             placeholder="Enter password"
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -62,7 +74,7 @@ const LoginForm: React.FC = () => {
           ) : null}
         </div>
         <Button variant="contained" className="loginBtn" type="submit">
-          Register
+          Login
         </Button>
       </form>
     </div>

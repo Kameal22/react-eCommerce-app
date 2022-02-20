@@ -1,0 +1,12 @@
+@import "../mixins/mixins.scss";
+
+.profile {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profileDiv {
+  @include marginCenter();
+  width: 80%;
+}

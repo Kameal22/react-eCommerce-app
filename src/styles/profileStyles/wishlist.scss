@@ -1,0 +1,12 @@
+@import "../mixins/mixins.scss";
+
+.wishlist {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wishlistDiv {
+  @include marginCenter();
+  width: 80%;
+}

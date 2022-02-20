@@ -1,47 +1,60 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../styles/profileStyles/registrationForm.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import { FormControlLabel } from "@mui/material";
-import { Checkbox } from "@mui/material";
+import axios from "axios";
 
 const RegisterForm: React.FC = () => {
   const [name, setName] = useState<string>("");
-  const [surname, setSurname] = useState<string | null>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [toggler, setToggler] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
       name: "",
-      surname: "",
       email: "",
       password: "",
-      acceptTerms: false,
+      // acceptTerms: false,
     },
     validationSchema: Yup.object({
       name: Yup.string()
         .max(15, "No more than 15 character")
         .required("Required"),
-      surname: Yup.string().required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string()
         .min(6, "Must be at least 6 characters")
         .required("Required"),
-      acceptTerms: Yup.bool().oneOf(
-        [true],
-        "Accept Terms & Conditions is required"
-      ),
+      // acceptTerms: Yup.bool().oneOf(
+      //   [true],
+      //   "Accept Terms & Conditions is required"
+      // ),
     }),
     onSubmit: (values) => {
       const inputName = values.name;
-      const inpurtSurname = values.surname;
       const inputEmail = values.email;
       const inputPassword = values.password;
-      console.log(values);
+
+      axios.post("http://localhost:3000/register", {
+        username: inputName,
+        email: inputEmail,
+        password: inputPassword
+      })
+        .then(res => {
+          console.log(res)
+          window.localStorage.setItem('user', inputName);
+        })
+        .then(res => {
+          navigate(`/`, { replace: true });
+        })
+        .catch(err => {
+          console.log(err)
+        })
       formik.resetForm();
     },
   });
@@ -68,17 +81,6 @@ const RegisterForm: React.FC = () => {
           ) : null}
           <TextField
             id="standard-basic"
-            label="Surname"
-            variant="standard"
-            className="registerFormInput"
-            name="surname"
-            type="text"
-            placeholder="Enter surname"
-            value={formik.values.surname}
-            onChange={formik.handleChange}
-          />
-          <TextField
-            id="standard-basic"
             label="Email"
             variant="standard"
             className="registerFormInput"
@@ -98,7 +100,7 @@ const RegisterForm: React.FC = () => {
             variant="standard"
             className="registerFormInput"
             name="password"
-            type="text"
+            type="password"
             placeholder="Enter password"
             value={formik.values.password}
             onChange={formik.handleChange}
@@ -108,7 +110,7 @@ const RegisterForm: React.FC = () => {
             <p className="formError">{formik.errors.password}</p>
           ) : null}
         </div>
-        <FormControlLabel
+        {/* <FormControlLabel
           control={<Checkbox />}
           label="Agree to terms and conditions"
           name="acceptTerms"
@@ -116,7 +118,7 @@ const RegisterForm: React.FC = () => {
         />
         {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
           <p className="formErrorTerms">{formik.errors.acceptTerms}</p>
-        ) : null}
+        ) : null} */}
         <Button variant="contained" className="registerBtn" type="submit">
           Register
         </Button>
