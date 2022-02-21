@@ -1,0 +1,25 @@
+.recProduct {
+  color: grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.recProductName {
+  font-size: 1em;
+}
+
+.recProductImg {
+  width: 30%;
+  height: 30%;
+}
+
+.recProductBrand {
+  font-size: 0.9em;
+}
+
+.recProductPrice {
+  font-size: 1em;
+}

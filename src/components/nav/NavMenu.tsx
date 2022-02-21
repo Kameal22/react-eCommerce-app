@@ -3,13 +3,15 @@ import "../../styles/navStyles/navMenu.scss";
 import { Link } from "react-router-dom";
 import { Logout } from "../../utills/Logout";
 
+//LOGOUT ICON SHOULD BE IN A DROPDOWN OF PROFILE
+
 const NavMenu: React.FC = () => {
-  if (!window.localStorage.user) {
+  if (window.localStorage.user) {
     return (
       <div className="navMenu">
         <div className="createAccDiv">
           <Link to="/profile" className="navLink">
-            <h4 className="navMenuLink">Your account</h4>
+            <h4 className="navMenuLink">Profile</h4>
           </Link>
           <i className="bi bi-person" style={{ fontSize: "1.2em" }}></i>
         </div>

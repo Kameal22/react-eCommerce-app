@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import "../../styles/recommendationStyles/recProducts.scss";
 import RecProduct from "./RecProduct";
 import { fetchProductsFunc } from "../../utills/FetchProductsFunc";
+import { Console } from "../../interfaces/ConsoleInterface";
 
 const RecProducts: React.FC = () => {
-  const [recProducts, setRecProducts] = useState<Array<string & number>>([]);
+  const [recProducts, setRecProducts] = useState<Console[]>([]);
 
   useEffect(() => {
-    fetchProductsFunc("laptops", setRecProducts)
+    fetchProductsFunc("consoles", setRecProducts)
   }, []);
 
   return (
     <div className="recProducts">
-      <h1>TEST</h1>
+      {recProducts.map(product => {
+        return (
+          <RecProduct name={product.name} brand={product.brand} price={product.price} img={product.img} />
+        )
+      })}
     </div>
   );
 };

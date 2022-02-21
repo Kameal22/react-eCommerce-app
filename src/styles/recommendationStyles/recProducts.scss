@@ -2,8 +2,7 @@
 
 .recProducts {
   @include marginCenter();
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   width: 80%;
   border-bottom: 1px solid grey;
 }

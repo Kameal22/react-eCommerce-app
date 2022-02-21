@@ -1,12 +1,20 @@
 import React from "react";
 import "../../styles/recommendationStyles/recProduct.scss";
 
-const RecProduct: React.FC = () => {
+interface RecProductProps {
+  name: String,
+  brand: String,
+  price: Number,
+  img: string,
+}
+
+const RecProduct: React.FC<RecProductProps> = props => {
   return (
     <div className="recProduct">
-      <h1>Img</h1>
-      <h2>Description</h2>
-      <h3>Price</h3>
+      <h2 className="recProductName">{props.name}</h2>
+      <img className="recProductImg" src={props.img}></img>
+      <h3 className="recProductBrand">{props.brand}</h3>
+      <h4 className="recProductPrice">{props.price} $</h4>
     </div>
   );
 };
