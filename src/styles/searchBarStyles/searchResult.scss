@@ -1,0 +1,42 @@
+@import "../mixins/mixins.scss";
+
+.resultDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResultDiv {
+  width: 80%;
+  @include marginCenter();
+  margin-top: 6vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchProduct {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.searchProduct:hover {
+  -webkit-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+  -moz-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+  box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+  cursor: pointer;
+}
+
+.searchProduct p {
+  font-size: 0.8em;
+}
+
+.searchResultImg {
+  width: 40%;
+  height: 40%;
+}

@@ -1,9 +1,10 @@
 export interface Console {
-    name: String,
-    brand: String,
+    key: string,
+    name: string,
+    brand: string,
     memory: Number,
     price: Number,
     img: string,
-    category: String,
-    id: String
+    category: string,
+    id: string
 }
