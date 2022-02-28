@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../../styles/searchBarStyles/searchResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
-import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
+import { fetchAndSetProductsFunc, fetchSpecificProduct } from "../../utills/FetchProductsFunc";
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
 
 const SearchResult: React.FC = () => {
-    const { productName } = useParams();
+    const { productType } = useParams();
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        fetchAndSetProductsFunc(productName, setProducts)
+        fetchAndSetProductsFunc(productType, setProducts)
     }, []);
 
     if (!products) {
@@ -30,7 +30,7 @@ const SearchResult: React.FC = () => {
                     {products.map(product => {
                         return (<div className="searchProduct">
                             <img className="searchResultImg" src={product.img}></img>
-                            <h5>{product.name}</h5>
+                            <Link to={`/specificResult/${product.category}/${product._id}`}><h5>{product.name}</h5></Link>
                             {/* <p>rating should go here perhaps</p> */}
                             {product.processor ? <p>Processor: {product.processor}</p> : null}
                             {product.cores ? <p>Cores: {product.cores} cores</p> : null}

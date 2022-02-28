@@ -12,7 +12,7 @@ const SearchBarLink: React.FC<searchBarProps> = props => {
 
     return (
         <div className="searchBarLink">
-            <Link className="searchBarLink" to={`/${props.name}`}>
+            <Link className="searchBarLink" to={`/searchResult/${props.name}`}>
                 <i className={props.iconClass} style={{ fontSize: "1.4em" }}></i>
                 <p>{props.name}</p>
             </Link>

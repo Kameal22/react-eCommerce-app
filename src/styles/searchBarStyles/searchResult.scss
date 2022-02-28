@@ -29,11 +29,14 @@
   -webkit-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
   -moz-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
   box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
-  cursor: pointer;
 }
 
 .searchProduct p {
   font-size: 0.8em;
+}
+
+.searchProduct h5 {
+  cursor: pointer;
 }
 
 .searchResultImg {

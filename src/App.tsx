@@ -10,6 +10,7 @@ import LogIn from "./components/profile/login/Login";
 import Register from "./components/profile/registration/Register";
 import { LogInProvider } from "./contexts/LoggedInContext";
 import SearchResult from "./components/searchBar/SearchResult";
+import SpecificResult from "./components/searchBar/SpecificResult";
 
 const App: React.FC = () => {
   return (
@@ -24,7 +25,8 @@ const App: React.FC = () => {
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/:productName" element={<SearchResult />} />
+            <Route path="/searchResult/:productType" element={<SearchResult />} />
+            <Route path="/specificResult/:productType/:productId" element={<SpecificResult />} />
           </Routes>
         </BrowserRouter>
       </div>
