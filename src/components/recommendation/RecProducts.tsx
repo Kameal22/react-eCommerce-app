@@ -15,7 +15,7 @@ const RecProducts: React.FC = () => {
     <div className="recProducts">
       {recProducts.map(product => {
         return (
-          <RecProduct key={product.name} name={product.name} brand={product.brand} price={product.price} img={product.img} />
+          <RecProduct key={product.name} _id={product._id} name={product.name} brand={product.brand} type={product.category} price={product.price} img={product.img} />
         )
       })}
     </div>

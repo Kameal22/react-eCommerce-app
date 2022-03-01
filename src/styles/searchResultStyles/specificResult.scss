@@ -1,0 +1,43 @@
+@import "../mixins/mixins.scss";
+
+.specificResultDiv {
+  width: 80%;
+  @include marginCenter();
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  border: 1px solid grey;
+  border-radius: 25px;
+  -webkit-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+  -moz-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+  box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+}
+
+.productButtons {
+  display: flex;
+  margin-bottom: 4vh;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.productButtons button {
+  padding: 6px 6px;
+  background-color: transparent;
+  border-radius: 10px;
+  border-color: rgb(48, 102, 202);
+}
+
+.productButtons button:hover {
+  transform: translate(-2px, -2px);
+  cursor: pointer;
+}

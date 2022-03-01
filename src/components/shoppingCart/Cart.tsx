@@ -16,7 +16,7 @@ const Cart: React.FC = () => {
   };
   return (
     <div className="cart">
-      <div className="registerNav">
+      <div className="shortPageNav">
         <NavLogo />
       </div>
       <div className="cartAndSummaryDiv">
@@ -35,7 +35,7 @@ const Cart: React.FC = () => {
         <CartSummary />
       </div>
       <AditionalCartInfo />
-      <div className="cartFooterDiv">
+      <div className="shortPageFooter">
         <Footer />
       </div>
     </div>

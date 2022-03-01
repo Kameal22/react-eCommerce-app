@@ -1,0 +1,13 @@
+@import "/src/styles/mixins/mixins.scss";
+
+.shortPageNav {
+  @include shortPageNav();
+}
+
+.shortPageFooter {
+  @include shortPageFooter();
+}
+
+.productLink {
+  @include productLinkStyle();
+}

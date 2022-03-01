@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import "../../styles/searchBarStyles/searchResult.scss";
+import "../../styles/searchResultStyles/searchResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
-import { fetchAndSetProductsFunc, fetchSpecificProduct } from "../../utills/FetchProductsFunc";
+import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
 
@@ -23,14 +23,14 @@ const SearchResult: React.FC = () => {
     } else {
         return (
             <div className="resultDiv">
-                <div className="registerNav">
+                <div className="shortPageNav">
                     <NavLogo />
                 </div>
                 <div className="searchResultDiv">
                     {products.map(product => {
                         return (<div className="searchProduct">
                             <img className="searchResultImg" src={product.img}></img>
-                            <Link to={`/specificResult/${product.category}/${product._id}`}><h5>{product.name}</h5></Link>
+                            <Link className="productLink" to={`/specificResult/${product.category}/${product._id}`}><h5>{product.name}</h5></Link>
                             {/* <p>rating should go here perhaps</p> */}
                             {product.processor ? <p>Processor: {product.processor}</p> : null}
                             {product.cores ? <p>Cores: {product.cores} cores</p> : null}
@@ -46,7 +46,7 @@ const SearchResult: React.FC = () => {
                         </div>)
                     })}
                 </div>
-                <div className="cartFooterDiv">
+                <div className="shortPageFooter">
                     <Footer />
                 </div>
             </div>

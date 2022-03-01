@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../styles/App.scss"
 import "../../../styles/profileStyles/login.scss";
 import LoginForm from "./LoginForm";
 import NavLogo from "../../nav/NavLogo";
@@ -9,11 +10,11 @@ const LogIn: React.FC = () => {
 
   return (
     <div className="logginInDiv">
-      <div className="registerNav">
+      <div className="shortPageNav">
         <NavLogo />
       </div>
       <LoginForm />
-      <div className="loginFooterDiv">
+      <div className="shortPageFooter">
         <Footer />
       </div>
     </div>

@@ -6,11 +6,13 @@ import RegisterForm from "./RegisterForm";
 const Register: React.FC = () => {
   return (
     <div className="registerDiv">
-      <div className="registerNav">
+      <div className="shortPageNav">
         <NavLogo />
       </div>
       <RegisterForm />
-      <Footer />
+      <div className="shortPageFooter">
+        <Footer />
+      </div>
     </div>
   );
 };

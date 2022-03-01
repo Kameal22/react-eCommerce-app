@@ -8,7 +8,7 @@ const userName = window.localStorage.getItem('user');
 const Profile: React.FC = () => {
   return (
     <div className="profile">
-      <div className="registerNav">
+      <div className="shortPageNav">
         <NavLogo />
       </div>
       <div className="profileDiv">
@@ -33,7 +33,7 @@ const Profile: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="cartFooterDiv">
+      <div className="shortPageFooter">
         <Footer />
       </div>
     </div>

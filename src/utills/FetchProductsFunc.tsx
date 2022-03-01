@@ -9,7 +9,7 @@ export const fetchAndSetProductsFunc = async (productType: string | undefined, s
   setProducts(response.data)
 };
 
-export const fetchAndSetProductsFuncWithParams = async (productType: string | undefined, productId: string | undefined, setProduct: React.Dispatch<React.SetStateAction<Console[]>> | React.Dispatch<React.SetStateAction<Product[]>>) => {
+export const fetchAndSetProductsFuncWithParams = async (productType: string | undefined, productId: string | undefined, setProduct: React.Dispatch<React.SetStateAction<Product | undefined>>) => {
 
   const response = await axios.get(`http://localhost:3000/${productType}/${productId}`);
 

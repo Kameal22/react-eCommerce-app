@@ -9,8 +9,8 @@ import Profile from "./components/profile/userProfile/Profile";
 import LogIn from "./components/profile/login/Login";
 import Register from "./components/profile/registration/Register";
 import { LogInProvider } from "./contexts/LoggedInContext";
-import SearchResult from "./components/searchBar/SearchResult";
-import SpecificResult from "./components/searchBar/SpecificResult";
+import SearchResult from "./components/searchResults/SearchResult";
+import SpecificResult from "./components/searchResults/SpecificResult";
 
 const App: React.FC = () => {
   return (

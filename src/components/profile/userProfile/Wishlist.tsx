@@ -6,7 +6,7 @@ import "../../../styles/profileStyles/wishlist.scss";
 const Wishlist: React.FC = () => {
   return (
     <div className="wishlist">
-      <div className="registerNav">
+      <div className="shortPageNav">
         <NavLogo />
       </div>
       <div className="wishlistDiv">
