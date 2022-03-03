@@ -3,7 +3,9 @@ import Footer from "../../footer/Footer";
 import NavLogo from "../../nav/NavLogo";
 import "../../../styles/profileStyles/profile.scss";
 
-const userName = window.localStorage.getItem('user');
+const userName = window.localStorage.user
+
+//Username isn't working. I have to use State to update DOM
 
 const Profile: React.FC = () => {
   return (

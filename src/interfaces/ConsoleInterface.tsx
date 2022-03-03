@@ -5,6 +5,7 @@ export interface Console {
     memory: Number,
     price: Number,
     img: string,
+    scdImg: string,
     category: string,
     _id: string
 }

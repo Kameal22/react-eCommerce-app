@@ -14,6 +14,7 @@ export interface Product {
     type?: string,
     price: Number,
     img: string,
+    scdImg: string,
     category: string,
     _id: string
 }

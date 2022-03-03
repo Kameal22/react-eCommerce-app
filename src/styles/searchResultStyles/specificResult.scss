@@ -41,3 +41,51 @@
   transform: translate(-2px, -2px);
   cursor: pointer;
 }
+
+.imgDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgDiv #leftArrow {
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.imgDiv #rightArrow {
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+.smallerImgsDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.smallerImg {
+  width: 20%;
+  height: 20%;
+  margin-left: 1em;
+  margin-right: 1em;
+  cursor: pointer;
+}
+
+.smallerImgCHOSEN {
+  width: 20%;
+  height: 20%;
+  margin-left: 1em;
+  margin-right: 1em;
+  border: 1px solid rgb(48, 102, 202);
+  border-radius: 20px;
+  padding: 5px 5px;
+  cursor: pointer;
+}
+
+.productHeading {
+  width: 80%;
+  text-align: center;
+}

@@ -5,14 +5,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
-import { FormControlLabel } from "@mui/material";
 import axios from "axios";
 
 const RegisterForm: React.FC = () => {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [toggler, setToggler] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -110,15 +105,6 @@ const RegisterForm: React.FC = () => {
             <p className="formError">{formik.errors.password}</p>
           ) : null}
         </div>
-        {/* <FormControlLabel
-          control={<Checkbox />}
-          label="Agree to terms and conditions"
-          name="acceptTerms"
-          className="registrationToggle"
-        />
-        {formik.touched.acceptTerms && formik.errors.acceptTerms ? (
-          <p className="formErrorTerms">{formik.errors.acceptTerms}</p>
-        ) : null} */}
         <Button variant="contained" className="registerBtn" type="submit">
           Register
         </Button>
