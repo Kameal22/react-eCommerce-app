@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/searchResultStyles/specificResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
@@ -6,10 +6,12 @@ import { fetchAndSetProductsFuncWithParams } from "../../utills/FetchProductsFun
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
 
+
 const SpecificResult: React.FC = () => {
     const { productType, productId } = useParams();
     const [product, setProduct] = useState<Product>();
     const [currImg, setCurrImg] = useState<string>();
+
 
     useEffect(() => {
         fetchAndSetProductsFuncWithParams(productType, productId, setProduct)

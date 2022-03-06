@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../styles/cartStyles/cartItem/cartItem.scss";
 import CartItemDescription from "./CartItemDescription";
 import CartItemIcons from "./CartItemIcons";
@@ -8,10 +7,10 @@ import CartItemPrice from "./CartItemPrice";
 const CartItem: React.FC = () => {
   return (
     <div className="shoppingCartItemDiv">
-      <CartItemImg />
+      {/* <CartItemImg />
       <CartItemDescription />
       <CartItemPrice />
-      <CartItemIcons />
+      <CartItemIcons /> */}
     </div>
   );
 };

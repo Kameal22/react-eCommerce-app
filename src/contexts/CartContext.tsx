@@ -1,11 +1,20 @@
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
+import { CartInterface } from "../interfaces/CartInterface";
 
-const LoggedInContext: React.FC = () => {
+export const CartContext = createContext<CartInterface[]>([])
+
+export const SetCartContext = createContext<
+  React.Dispatch<React.SetStateAction<CartInterface[]>> | undefined
+>(undefined);
+
+export const CartProvider: React.FC = ({ children }) => {
+  const [cartItems, setCartItems] = useState<CartInterface[]>([]);
+
   return (
-    <div className="App">
-      <h1>To do - CONTEXT </h1>
-    </div>
+    <CartContext.Provider value={cartItems}>
+      <SetCartContext.Provider value={setCartItems}>
+        {children}
+      </SetCartContext.Provider>
+    </CartContext.Provider>
   );
 };
-
-export default LoggedInContext;

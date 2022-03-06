@@ -8,13 +8,13 @@ import Wishlist from "./components/profile/userProfile/Wishlist";
 import Profile from "./components/profile/userProfile/Profile";
 import LogIn from "./components/profile/login/Login";
 import Register from "./components/profile/registration/Register";
-import { LogInProvider } from "./contexts/LoggedInContext";
 import SearchResult from "./components/searchResults/SearchResult";
 import SpecificResult from "./components/searchResults/SpecificResult";
+import { CartProvider } from "./contexts/CartContext";
 
 const App: React.FC = () => {
   return (
-    <LogInProvider>
+    <CartProvider>
       <div className="App">
         <BrowserRouter>
           <Routes>
@@ -30,7 +30,7 @@ const App: React.FC = () => {
           </Routes>
         </BrowserRouter>
       </div>
-    </LogInProvider>
+    </CartProvider>
   );
 };
 
