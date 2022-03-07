@@ -6,12 +6,18 @@ import SearchBarLink from "./SearchBarLink";
 
 const SearchBar: React.FC = () => {
   const [productTypes] = useState(ProductTypesArray);
+
   return (
     <div className="searchBar">
-      {productTypes.map(type => {
+      {productTypes.map((type) => {
         return (
-          <SearchBarLink key={type.name} name={type.name} iconClass={type.icon} />
-        )
+          <SearchBarLink
+            key={type.name}
+            name={type.name}
+            iconClass={type.icon}
+            dropdowns={type.dropdowns}
+          />
+        );
       })}
     </div>
   );

@@ -5,4 +5,9 @@
   @include marginCenter();
   width: 80%;
   border-bottom: 1px solid grey;
+
+  span {
+    color: rgb(48, 102, 202);
+    font-weight: bold;
+  }
 }

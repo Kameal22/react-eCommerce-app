@@ -3,8 +3,6 @@ import "../../styles/navStyles/navMenu.scss";
 import { Link } from "react-router-dom";
 import { Logout } from "../../utills/Logout";
 
-//LOGOUT ICON SHOULD BE IN A DROPDOWN OF PROFILE
-
 const NavMenu: React.FC = () => {
   if (window.localStorage.user) {
     return (
