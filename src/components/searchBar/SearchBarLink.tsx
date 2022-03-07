@@ -10,31 +10,22 @@ interface searchBarProps {
 
 const SearchBarLink: React.FC<searchBarProps> = (props) => {
   const [dropdownActive, setDropdownActive] = useState(false);
-  const [dropdownClassName, setDropdownClassName] =
-    useState("inactiveDropdown");
 
   return (
-    <div className="searchBarLinkDiv">
+    <div onMouseEnter={() => setDropdownActive(true)} onMouseLeave={() => setDropdownActive(false)} className="searchBarLinkDiv">
       <Link
-        onMouseOver={() => setDropdownClassName("activeDropdown")}
-        onMouseLeave={() => setDropdownClassName("inactiveDropdown")}
         className="searchBarLink"
         to={`/searchResult/${props.name}`}
       >
         <i className={props.iconClass} style={{ fontSize: "1.4em" }}></i>
         <p>{props.name}</p>
       </Link>
-      <div
-        onMouseOver={() => setDropdownClassName("activeDropdown")}
-        onMouseLeave={() => setDropdownClassName("inactiveDropdown")}
-        className={dropdownClassName}
-      >
-        <ul className="dropdownItemsList">
-          {props.dropdowns.map((dropdown) => {
-            return <li className="dropdownItem">{dropdown.name}</li>;
-          })}
-        </ul>
-      </div>
+      {dropdownActive ? <div className={'dropdownDiv'}>
+        {props.dropdowns.map((dropdown) => {
+          return <p className="dropdownItem">{dropdown.name}</p>;
+        })}
+      </div> : null}
+
     </div>
   );
 };
