@@ -22,7 +22,7 @@ const SearchBarLink: React.FC<searchBarProps> = (props) => {
       </Link>
       {dropdownActive ? <div className={'dropdownDiv'}>
         {props.dropdowns.map((dropdown) => {
-          return <p className="dropdownItem">{dropdown.name}</p>;
+          return <p className="dropdownItem">{dropdown.name}</p>
         })}
       </div> : null}
 

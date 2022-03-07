@@ -7,8 +7,8 @@ import { TextField } from "@mui/material";
 import axios from "axios";
 
 const LoginForm: React.FC = () => {
-  const [name, setName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  // const [name, setName] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
 
   const formik = useFormik({
     initialValues: {

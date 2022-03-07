@@ -6,7 +6,6 @@ import NavLogo from "../../nav/NavLogo";
 import Footer from "../../footer/Footer";
 
 const LogIn: React.FC = () => {
-  const logo: string = `Web-Shop/>`;
 
   return (
     <div className="logginInDiv">
