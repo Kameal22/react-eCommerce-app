@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../../styles/searchResultStyles/searchResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
-import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
+import { fetchAndSetProductsFunc, fetchAndFilterProductsFunc } from "../../utills/FetchProductsFunc";
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
 
 const SearchResult: React.FC = () => {
-    const { productType } = useParams();
+    const { productType, productCategory, productCategoryIdx } = useParams();
     const [products, setProducts] = useState<Product[]>([]);
 
     useEffect(() => {
-        fetchAndSetProductsFunc(productType, setProducts)
+        if (!productCategory) {
+            fetchAndSetProductsFunc(productType, setProducts)
+        } else {
+            //Use similar function but with filtering based on passed productCategory
+            fetchAndFilterProductsFunc(productType, productCategory, productCategoryIdx, setProducts)
+        }
     }, []);
 
     if (!products) {
@@ -21,6 +26,7 @@ const SearchResult: React.FC = () => {
             </div>
         );
     } else {
+
         return (
             <div className="resultDiv">
                 <div className="shortPageNav">

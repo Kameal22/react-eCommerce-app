@@ -20,7 +20,7 @@ const Cart: React.FC = () => {
         <div className="shortPageNav">
           <NavLogo />
         </div>
-        <h1>Cart is empty</h1>
+        <h1 onClick={() => console.log(cart)}>Cart is empty</h1>
         <button>Go back</button>
         <div className="shortPageFooter">
           <Footer />
