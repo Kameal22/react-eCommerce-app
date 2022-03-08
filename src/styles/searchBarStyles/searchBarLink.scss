@@ -20,12 +20,15 @@
   -webkit-box-shadow: -6px 7px 13px -5px rgba(66, 68, 90, 1);
   -moz-box-shadow: -6px 7px 13px -5px rgba(66, 68, 90, 1);
   box-shadow: -6px 7px 13px -5px rgba(66, 68, 90, 1);
-  background-color: rgb(238, 238, 238);
+  background-color: rgba(238, 238, 238, 0.9);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .dropdownItem {
   width: 100%;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .dropdownItem:hover {
