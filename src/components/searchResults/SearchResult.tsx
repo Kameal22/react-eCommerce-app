@@ -14,7 +14,6 @@ const SearchResult: React.FC = () => {
         if (!productCategory) {
             fetchAndSetProductsFunc(productType, setProducts)
         } else {
-            //Use similar function but with filtering based on passed productCategory
             fetchAndFilterProductsFunc(productType, productCategory, productCategoryIdx, setProducts)
         }
     }, []);

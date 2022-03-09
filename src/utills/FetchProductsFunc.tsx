@@ -16,21 +16,16 @@ export const fetchAndSetProductsFunc = async (
 export const fetchAndFilterProductsFunc = async (
   productType: string | undefined,
   productCategory: string | number,
-  productCategoryIdx: string | number | undefined, //CHANGIN THIS CAUSES AN ERROR. iT MUST BE STRING | UNDEFINED. BUT WHY?
-  setProducts: // | React.Dispatch<React.SetStateAction<Console[]>>
-  React.Dispatch<React.SetStateAction<Product[]>>
+  productCategoryIdx: string | number | undefined,
+  setProducts: React.Dispatch<React.SetStateAction<Product[]>>
 ) => {
   const response = await axios.get(`http://localhost:3000/${productType}`);
-  console.log(productCategoryIdx);
-  console.log(typeof productCategoryIdx); // Problem is, that this is a string for fuck sake.
 
   const filteredResponse = response.data.filter((product: any) => {
-    return product[productCategory] === productCategoryIdx;
+    return product[productCategory] == productCategoryIdx;
   });
 
-  console.log(filteredResponse);
-  console.log(response.data);
-  // setProducts(response.data)
+  setProducts(filteredResponse)
 };
 
 export const fetchAndSetProductsFuncWithParams = async (
