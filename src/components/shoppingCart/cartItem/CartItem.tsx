@@ -1,16 +1,18 @@
 import "../../../styles/cartStyles/cartItem/cartItem.scss";
-import CartItemDescription from "./CartItemDescription";
-import CartItemIcons from "./CartItemIcons";
-import CartItemImg from "./CartItemImg";
-import CartItemPrice from "./CartItemPrice";
 
-const CartItem: React.FC = () => {
+interface CartProps {
+  name: string,
+  img: string,
+  price: number,
+}
+
+const CartItem: React.FC<CartProps> = props => {
   return (
     <div className="shoppingCartItemDiv">
-      {/* <CartItemImg />
-      <CartItemDescription />
-      <CartItemPrice />
-      <CartItemIcons /> */}
+      <p>{props.name}</p>
+      <img className="cartProductImg" src={props.img}></img>
+      <h3>{props.price} $</h3>
+      <i className="bi bi-trash"></i>
     </div>
   );
 };

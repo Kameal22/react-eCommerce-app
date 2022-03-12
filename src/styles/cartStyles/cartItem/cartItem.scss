@@ -1,4 +1,12 @@
 .shoppingCartItemDiv {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin-bottom: 1vh;
+}
+
+.cartProductImg {
+  width: 25%;
 }

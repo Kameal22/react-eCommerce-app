@@ -1,6 +1,5 @@
 export interface CartInterface {
+    name: string,
     img: string,
-    description: string,
     price: number,
-    icon: string
 }

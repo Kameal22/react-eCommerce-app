@@ -2,11 +2,15 @@ import React from "react";
 import "../../styles/cartStyles/cartSummary.scss";
 import Button from "@mui/material/Button";
 
-const CartSummary: React.FC = () => {
+interface CartPriceProps {
+  price: number,
+}
+
+const CartSummary: React.FC<CartPriceProps> = props => {
   return (
     <div className="shoppingCartSummaryDiv">
-      <h3>Cart value : 1000$</h3>
-      <Button variant="contained" className="proceedBtn" type="submit">
+      <h3>Cart value: {props.price} $</h3>
+      <Button onClick={() => console.log(props.price)} variant="contained" className="proceedBtn" type="submit">
         Proceed
       </Button>
     </div>

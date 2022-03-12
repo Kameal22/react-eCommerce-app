@@ -1,17 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/searchResultStyles/specificResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFuncWithParams } from "../../utills/FetchProductsFunc";
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
-
+import { useSetCart } from "../../contexts/CartContext";
 
 const SpecificResult: React.FC = () => {
+    const setCart = useSetCart();
     const { productType, productId } = useParams();
     const [product, setProduct] = useState<Product>();
     const [currImg, setCurrImg] = useState<string>();
 
+    const handleSetCart = (name: string, img: string, price: number) => {
+        setCart((cart) => {
+            return [...cart, { name: name, img: img, price: price }]
+        })
+    }
 
     useEffect(() => {
         fetchAndSetProductsFuncWithParams(productType, productId, setProduct)
@@ -64,7 +70,7 @@ const SpecificResult: React.FC = () => {
                         <h2>{product.price} $</h2>
 
                         <div className="productButtons">
-                            <button>Add to cart</button>
+                            <button onClick={() => handleSetCart(product.name, product.img, product.price)}>Add to cart</button>
                             {window.localStorage.user ? <button>Add to wishlist</button> : null}
                         </div>
                     </div>

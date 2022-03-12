@@ -7,6 +7,15 @@ export const SetCartContext = createContext<
   React.Dispatch<React.SetStateAction<CartInterface[]>> | undefined
 >(undefined);
 
+export const useSetCart = () => {
+  const setCart = useContext(SetCartContext);
+
+  if (!setCart) {
+    throw new Error('Called outside setCartContext provider')
+  }
+  return setCart
+}
+
 export const CartProvider: React.FC = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartInterface[]>([]);
 
