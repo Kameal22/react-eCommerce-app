@@ -4,12 +4,18 @@ import "../../styles/advBannerStyles/advBanner.scss";
 const AdvBanner: React.FC = () => {
   return (
     <div className="advBanner">
-      <h1>Helping banner</h1>
+      <h1>Simple example of online shop</h1>
       <h2>
-        I will write some not-at-first visible technical features of this
-        website
+        Register, browse products, sort and filter them, add to cart, view
+        latelty watched products
       </h2>
-      <h3>Then user can check them out</h3>
+      <h3>
+        Visit{" "}
+        <a className="githubLink" href="https://github.com/Kameal22">
+          my Github
+        </a>{" "}
+        to view more projects
+      </h3>
     </div>
   );
 };
