@@ -1,2 +1,0 @@
-When hovering over any icon, dropdown menu will appear and now the context will set certain state to be true,
-which will make rest of the page grey. So you can focus on the menu. Only navbar wouldn't be 'grey-ed out'
