@@ -27,7 +27,7 @@
 
 .clearCartDiv i {
   margin-right: 1em;
-  border-bottom: 1px solid grey;
+  cursor: pointer;
 }
 
 .cartAndSummaryDiv {
@@ -38,12 +38,8 @@
   margin-top: 4vh;
 }
 
-.yourCartHeading {
-  border-bottom: 1px solid grey;
-}
-
 .clearCartHeading {
-  border-bottom: 1px solid grey;
+  cursor: pointer;
 }
 
 .cartFooterDiv {

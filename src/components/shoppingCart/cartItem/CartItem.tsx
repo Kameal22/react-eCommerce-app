@@ -4,15 +4,16 @@ interface CartProps {
   name: string,
   img: string,
   price: number,
+  deleteItem: (name: string) => void //Almost good, need to add an ID because now it will delete multiple items with the same name.
 }
 
 const CartItem: React.FC<CartProps> = props => {
   return (
     <div className="shoppingCartItemDiv">
-      <p>{props.name}</p>
+      <p className="cartItemName">{props.name}</p>
       <img className="cartProductImg" src={props.img}></img>
-      <h3>{props.price} $</h3>
-      <i className="bi bi-trash"></i>
+      <p>{props.price} $</p>
+      <i onClick={() => props.deleteItem(props.name)} className="bi bi-trash"></i>
     </div>
   );
 };

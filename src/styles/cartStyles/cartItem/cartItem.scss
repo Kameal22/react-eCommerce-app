@@ -5,8 +5,14 @@
   border: 1px solid grey;
   border-radius: 10px;
   margin-bottom: 1vh;
+  padding: 8px 8px;
+}
+
+.cartItemName {
+  font-size: 0.9em;
+  width: 50%;
 }
 
 .cartProductImg {
-  width: 25%;
+  width: 20%;
 }
