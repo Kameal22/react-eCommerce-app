@@ -1,12 +1,23 @@
 import React from "react";
 import "../../styles/lastWatchedStyles/lastWatchedProduct.scss";
+import { Link } from "react-router-dom";
 
-const LastWatchedProduct: React.FC = () => {
+interface latelyWatched {
+  name: string,
+  img: string,
+  price: number,
+  category: string,
+  id: string
+}
+
+const LastWatchedProduct: React.FC<latelyWatched> = props => {
   return (
     <div className="lastWatchedProduct">
-      <h1>Lately watched product IMG</h1>
-      <h1>Lately watched product DESCRIPTION</h1>
-      <h1>Lately watched product PRICE</h1>
+      <Link className="productLink" to={`/specificResult/${props.category}/${props.id}`}>
+        <h2 className="recProductName">{props.name}</h2>
+      </Link>
+      <img className="lwImg" src={props.img}></img>
+      <p className="lwPrice">{props.price} $</p>
     </div>
   );
 };

@@ -12,12 +12,15 @@ const RecProducts: React.FC = () => {
   }, []);
 
   return (
-    <div className="recProducts">
-      {recProducts.map(product => {
-        return (
-          <RecProduct key={product.name} _id={product._id} name={product.name} brand={product.brand} type={product.category} price={product.price} img={product.img} />
-        )
-      })}
+    <div>
+      <p className="info">We recommend</p>
+      <div className="recProducts">
+        {recProducts.map(product => {
+          return (
+            <RecProduct key={product.name} _id={product._id} name={product.name} brand={product.brand} type={product.category} price={product.price} img={product.img} />
+          )
+        })}
+      </div>
     </div>
   );
 };

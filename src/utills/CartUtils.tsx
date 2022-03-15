@@ -10,8 +10,8 @@ export const clearCart = (setCart: React.Dispatch<React.SetStateAction<CartInter
     setCart([])
 }
 
-export const deleteClickedCartItem = (cart: CartInterface[], name: string, setNewCart: React.Dispatch<React.SetStateAction<CartInterface[] | undefined>>) => {
-    const cartAfterRemove = cart?.filter(product => product.name !== name)
+export const deleteClickedCartItem = (cart: CartInterface[], id: string, setNewCart: React.Dispatch<React.SetStateAction<CartInterface[] | undefined>>) => {
+    const cartAfterRemove = cart?.filter(product => product.id !== id)
 
     setNewCart(cartAfterRemove)
 }

@@ -11,27 +11,30 @@ import Register from "./components/profile/registration/Register";
 import SearchResult from "./components/searchResults/SearchResult";
 import SpecificResult from "./components/searchResults/SpecificResult";
 import { CartProvider } from "./contexts/CartContext";
+import { LWProvider } from "./contexts/LatelyWatchedContext";
 
 const App: React.FC = () => {
   return (
-    <CartProvider>
-      <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LandingView />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/loginForm" element={<LoginForm />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/searchResult/:productType" element={<SearchResult />} />
-            <Route path="/searchResult/:productType/:productCategory/:productCategoryIdx" element={<SearchResult />} />
-            <Route path="/specificResult/:productType/:productId" element={<SpecificResult />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </CartProvider>
+    <LWProvider>
+      <CartProvider>
+        <div className="App">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LandingView />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<LogIn />} />
+              <Route path="/loginForm" element={<LoginForm />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/searchResult/:productType" element={<SearchResult />} />
+              <Route path="/searchResult/:productType/:productCategory/:productCategoryIdx" element={<SearchResult />} />
+              <Route path="/specificResult/:productType/:productId" element={<SpecificResult />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </CartProvider>
+    </LWProvider>
   );
 };
 

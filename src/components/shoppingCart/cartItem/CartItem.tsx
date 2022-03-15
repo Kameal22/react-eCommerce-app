@@ -1,10 +1,11 @@
 import "../../../styles/cartStyles/cartItem/cartItem.scss";
 
 interface CartProps {
+  id: string,
   name: string,
   img: string,
   price: number,
-  deleteItem: (name: string) => void //Almost good, need to add an ID because now it will delete multiple items with the same name.
+  deleteItem: (id: string) => void //Almost good, need to add an ID because now it will delete multiple items with the same name.
 }
 
 const CartItem: React.FC<CartProps> = props => {
@@ -13,7 +14,7 @@ const CartItem: React.FC<CartProps> = props => {
       <p className="cartItemName">{props.name}</p>
       <img className="cartProductImg" src={props.img}></img>
       <p>{props.price} $</p>
-      <i onClick={() => props.deleteItem(props.name)} className="bi bi-trash"></i>
+      <i onClick={() => props.deleteItem(props.id)} className="bi bi-trash"></i>
     </div>
   );
 };

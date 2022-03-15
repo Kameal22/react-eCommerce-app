@@ -58,7 +58,7 @@ const Cart: React.FC = () => {
           <div className="usersCartDiv">
             <div className="cartNav">
               <h3 className="yourCartHeading">
-                YOUR CART ({cartItem.length} items)
+                Your cart: ({cartItem.length} items)
               </h3>
               <div className="clearCartDiv">
                 <i onClick={() => clearCart(setCartItem)} className="bi bi-trash"></i>
@@ -67,7 +67,7 @@ const Cart: React.FC = () => {
             </div>
             {cartItem.map(item => {
               return (
-                <CartItem name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.name, setCartItem)} />
+                <CartItem id={item.id} name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.id, setCartItem)} />
               )
             })}
           </div>

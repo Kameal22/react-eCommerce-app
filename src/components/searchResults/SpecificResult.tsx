@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { LatelyWatchedContext } from "../../contexts/LatelyWatchedContext";
 import { useParams } from "react-router-dom";
 import "../../styles/searchResultStyles/specificResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
@@ -6,22 +7,40 @@ import { fetchAndSetProductsFuncWithParams } from "../../utills/FetchProductsFun
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
 import { useSetCart } from "../../contexts/CartContext";
+import { v4 as uuid } from 'uuid';
+import { useSetLW } from "../../contexts/LatelyWatchedContext";
 
 const SpecificResult: React.FC = () => {
     const setCart = useSetCart();
+    const setLastWatched = useSetLW();
+    const lasties = useContext(LatelyWatchedContext);
+
     const { productType, productId } = useParams();
     const [product, setProduct] = useState<Product>();
     const [currImg, setCurrImg] = useState<string>();
 
-    const handleSetCart = (name: string, img: string, price: number) => {
+    const handleSetCart = (id: string, name: string, img: string, price: number) => {
         setCart((cart) => {
-            return [...cart, { name: name, img: img, price: price }]
+            return [...cart, { id: id, name: name, img: img, price: price }]
         })
+    }
+
+    const handleSetLastWatched = (name: string, img: string, price: number, category: string, id: string) => {
+        if (!lasties.some((products) => products.name === name)) {
+            setLastWatched((lw => {
+                return [...lw, { name: name, img: img, price: price, category: category, id: id }]
+            }))
+        }
     }
 
     useEffect(() => {
         fetchAndSetProductsFuncWithParams(productType, productId, setProduct)
     }, []);
+
+    useEffect(() => {
+        if (product)
+            handleSetLastWatched(product.name, product.img, product.price, product.category, product._id)
+    }, [product])
 
     useEffect(() => {
         setCurrImg(product?.img)
@@ -70,7 +89,7 @@ const SpecificResult: React.FC = () => {
                         <h2>{product.price} $</h2>
 
                         <div className="productButtons">
-                            <button onClick={() => handleSetCart(product.name, product.img, product.price)}>Add to cart</button>
+                            <button onClick={() => handleSetCart(uuid(), product.name, product.img, product.price)}>Add to cart</button>
                             {window.localStorage.user ? <button>Add to wishlist</button> : null}
                         </div>
                     </div>

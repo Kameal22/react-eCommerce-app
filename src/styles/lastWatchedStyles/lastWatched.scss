@@ -1,9 +1,16 @@
 @import "../mixins/mixins.scss";
 
 .lastWatchedDiv {
+  @include marginCenter();
+  width: 80%;
+  height: 30vh;
+  display: flex;
+  border-bottom: 1px solid grey;
+}
+
+.info {
+  font-size: 0.8em;
+  font-weight: bold;
   width: 80%;
   @include marginCenter();
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid grey;
 }
