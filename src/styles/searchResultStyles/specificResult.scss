@@ -89,3 +89,22 @@
   width: 80%;
   text-align: center;
 }
+
+.popUpDiv {
+  width: 25%;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(48, 102, 202, 0.918);
+  border-radius: 15px;
+  text-align: center;
+  z-index: 999;
+}
+
+.popUpDiv i {
+  position: absolute;
+  top: 10%;
+  right: 3%;
+  cursor: pointer;
+}

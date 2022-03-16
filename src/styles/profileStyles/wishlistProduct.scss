@@ -1,0 +1,23 @@
+.wishlistProduct {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.wishlistProduct:hover {
+  -webkit-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+  -moz-box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+  box-shadow: -6px 9px 18px -13px rgba(66, 68, 90, 1);
+}
+
+.wishlistProduct h5 {
+  cursor: pointer;
+}
+
+.wishlistProduct img {
+  width: 40%;
+  height: 40%;
+}

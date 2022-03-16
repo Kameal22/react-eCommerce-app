@@ -17,10 +17,10 @@ const LastWatchedProduct: React.FC<latelyWatched> = (props) => {
         className="productLink"
         to={`/specificResult/${props.category}/${props.id}`}
       >
-        <h2 className="LWProductName">{props.name}</h2>
+        <h2 className="recProductName">{props.name}</h2>
       </Link>
-      <img className="lwImg" src={props.img}></img>
-      <p className="lwPrice">{props.price} $</p>
+      <img className="recProductImg" src={props.img}></img>
+      <h4 className="recProductPrice">{props.price} $</h4>
     </div>
   );
 };

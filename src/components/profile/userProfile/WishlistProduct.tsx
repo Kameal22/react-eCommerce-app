@@ -17,10 +17,10 @@ const WishlistProduct: React.FC<wishlistInterface> = (props) => {
         className="productLink"
         to={`/specificResult/${props.category}/${props.id}`}
       >
-        <h2 className="wishlistProductName">{props.name}</h2>
+        <h5 className="wishlistProductName">{props.name}</h5>
       </Link>
-      <img className="wishlistImg" src={props.img}></img>
-      <p className="wishlistPrice">{props.price} $</p>
+      <img className="searchResultImg" src={props.img}></img>
+      <h5 className="wishlistPrice">{props.price} $</h5>
     </div>
   );
 };

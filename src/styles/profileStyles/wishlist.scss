@@ -7,6 +7,15 @@
 }
 
 .wishlistDiv {
-  @include marginCenter();
   width: 80%;
+  @include marginCenter();
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.wishlistHeading {
+  width: 80%;
+  @include marginCenter();
 }

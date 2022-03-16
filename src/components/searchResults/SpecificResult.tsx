@@ -9,20 +9,24 @@ import Footer from "../footer/Footer";
 import { useSetCart } from "../../contexts/CartContext";
 import { v4 as uuid } from 'uuid';
 import { useSetLW } from "../../contexts/LatelyWatchedContext";
+import { useSetWishlist } from "../../contexts/WishListContext";
 
 const SpecificResult: React.FC = () => {
     const setCart = useSetCart();
     const setLastWatched = useSetLW();
+    const setWishlist = useSetWishlist();
     const lasties = useContext(LatelyWatchedContext);
 
     const { productType, productId } = useParams();
     const [product, setProduct] = useState<Product>();
     const [currImg, setCurrImg] = useState<string>();
+    const [addedTo, setAddedTo] = useState<string>('');
 
     const handleSetCart = (id: string, name: string, img: string, price: number) => {
         setCart((cart) => {
             return [...cart, { id: id, name: name, img: img, price: price }]
         })
+        setAddedTo('Cart')
     }
 
     const handleSetLastWatched = (name: string, img: string, price: number, category: string, id: string) => {
@@ -31,6 +35,17 @@ const SpecificResult: React.FC = () => {
                 return [...lw, { name: name, img: img, price: price, category: category, id: id }]
             }))
         }
+    }
+
+    const handleSetWishlist = (name: string, img: string, price: number, category: string, id: string) => {
+        setWishlist((product => {
+            return [...product, { name: name, img: img, price: price, category: category, id: id }]
+        }))
+        setAddedTo('Wishlist')
+    }
+
+    const clearPopup = () => {
+        setAddedTo('')
     }
 
     useEffect(() => {
@@ -90,10 +105,11 @@ const SpecificResult: React.FC = () => {
 
                         <div className="productButtons">
                             <button onClick={() => handleSetCart(uuid(), product.name, product.img, product.price)}>Add to cart</button>
-                            {window.localStorage.user ? <button>Add to wishlist</button> : null}
+                            {window.localStorage.user ? <button onClick={() => handleSetWishlist(product.name, product.img, product.price, product.category, product._id)}>Add to wishlist</button> : null}
                         </div>
                     </div>
                 </div>
+                <div className="popUpDiv">{addedTo === '' ? null : <div><h4>Added to {addedTo}!</h4> <i onClick={clearPopup} style={{ fontSize: "1.3em" }} className="bi bi-x"></i></div>}</div>
                 <div className="shortPageFooter">
                     <Footer />
                 </div>

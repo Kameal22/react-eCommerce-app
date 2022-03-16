@@ -12,13 +12,14 @@ const Wishlist: React.FC = () => {
 
   useEffect(() => {
     setWishlist(wishlistContext);
-  }, [wishlistContext]);
+  }, []);
 
   return (
     <div className="wishlist">
       <div className="shortPageNav">
         <NavLogo />
       </div>
+      <h3 className="wishlistHeading">Your wishlist</h3>
       <div className="wishlistDiv">
         {wishlist.map((product) => {
           return (
