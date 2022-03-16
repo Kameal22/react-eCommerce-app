@@ -5,22 +5,27 @@ import "../../styles/lastWatchedStyles/lastWatched.scss";
 import LastWatchedProduct from "./LastWatchedProduct";
 
 const LastWatched: React.FC = () => {
-  const [lastWatched, setLastWatched] = useState<LastWatchedInterface[]>([])
   const lasties = useContext(LatelyWatchedContext);
+  const [lastWatched, setLastWatched] = useState<LastWatchedInterface[]>([]);
 
   useEffect(() => {
-    setLastWatched(lasties)
-  }, [lasties])
-
+    setLastWatched(lasties);
+  }, [lasties]);
 
   return (
     <div>
       <p className="info">Lately watched</p>
       <div className="lastWatchedDiv">
-        {lastWatched.map(product => {
+        {lastWatched.map((product) => {
           return (
-            <LastWatchedProduct name={product.name} img={product.img} price={product.price} category={product.category} id={product.id} />
-          )
+            <LastWatchedProduct
+              name={product.name}
+              img={product.img}
+              price={product.price}
+              category={product.category}
+              id={product.id}
+            />
+          );
         })}
       </div>
     </div>
