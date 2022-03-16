@@ -11,7 +11,11 @@ const AdvBanner: React.FC = () => {
       </h2>
       <h3>
         Visit{" "}
-        <a className="githubLink" href="https://github.com/Kameal22">
+        <a
+          className="githubLink"
+          target="_blank"
+          href="https://github.com/Kameal22"
+        >
           my Github
         </a>{" "}
         to view more projects
