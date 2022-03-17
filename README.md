@@ -1,6 +1,6 @@
 # MERN stack eCommerce typescript app with basic backend setup for Front end portfolio purposes
 
-## This app mainly focuses on developing frontend, backend is very straightforward. Just wanted it to work so I can build more intresting project using frontend skills.
+## This app mainly focuses on developing frontend, backend is very straightforward. Just wanted it to work so I can build more intresting project.
 
 ## Packages used in project
 
