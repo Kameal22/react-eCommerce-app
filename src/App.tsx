@@ -13,6 +13,7 @@ import SpecificResult from "./components/searchResults/SpecificResult";
 import { CartProvider } from "./contexts/CartContext";
 import { LWProvider } from "./contexts/LatelyWatchedContext";
 import { WishlistProvider } from "./contexts/WishListContext";
+import CartProceed from "./components/shoppingCart/CartProceed";
 
 const App: React.FC = () => {
   return (
@@ -29,9 +30,19 @@ const App: React.FC = () => {
                 <Route path="/wishlist" element={<Wishlist />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/searchResult/:productType" element={<SearchResult />} />
-                <Route path="/searchResult/:productType/:productCategory/:productCategoryIdx" element={<SearchResult />} />
-                <Route path="/specificResult/:productType/:productId" element={<SpecificResult />} />
+                <Route path="/proceed" element={<CartProceed />} />
+                <Route
+                  path="/searchResult/:productType"
+                  element={<SearchResult />}
+                />
+                <Route
+                  path="/searchResult/:productType/:productCategory/:productCategoryIdx"
+                  element={<SearchResult />}
+                />
+                <Route
+                  path="/specificResult/:productType/:productId"
+                  element={<SpecificResult />}
+                />
               </Routes>
             </BrowserRouter>
           </div>

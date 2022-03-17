@@ -1,0 +1,96 @@
+@import "../mixins/mixins.scss";
+
+.cartProceedDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.proceed {
+  width: 60%;
+  margin-top: 2vh;
+  @include marginCenter();
+  display: flex;
+  justify-content: space-between;
+}
+
+.delivery {
+  width: 50%;
+}
+
+.summary {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.747);
+}
+
+.qtyPrice {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.deliveryRecieve {
+  border-bottom: 1px solid grey;
+}
+
+.summaryDelivery {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.summaryRecieve {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  justify-content: space-around;
+}
+
+.summaryValues {
+  background-color: rgba(224, 224, 224, 0.74);
+}
+
+.summaryValues p,
+h4,
+h5 {
+  margin-left: 1em;
+}
+
+.summaryBtnDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summaryBtnDiv button {
+  margin-bottom: 2vh;
+}
+
+.deliveryChoice div {
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin-top: 1vh;
+  p {
+    margin-left: 1em;
+  }
+}
+
+.paymentMethod div {
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin-top: 1vh;
+  p {
+    margin-left: 1em;
+  }
+}
