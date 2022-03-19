@@ -11,7 +11,7 @@ const CartSummary: React.FC<CartPriceProps> = (props) => {
   return (
     <div className="shoppingCartSummaryDiv">
       <h3>Cart value: {props.price} $</h3>
-      <Link to="/PATHHERE" className="logoLink">
+      <Link to="/proceed" className="logoLink">
         <Button variant="contained" className="proceedBtn" type="submit">
           Proceed
         </Button>
