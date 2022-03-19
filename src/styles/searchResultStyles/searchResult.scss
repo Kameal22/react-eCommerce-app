@@ -11,9 +11,23 @@
   @include marginCenter();
   margin-top: 6vh;
   display: flex;
+  justify-content: space-between;
+}
+
+.searchResult {
+  width: 75%;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.filters {
+  width: 25%;
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 10px;
+  height: fit-content;
 }
 
 .searchProduct {
