@@ -24,7 +24,7 @@ const SearchResult: React.FC = () => {
             return product[chosenCategory] === chosenOption;
         });
         setProducts(filteredByBrand)
-    } //And this is how I should show filtered data. It works. Now provide those func params from FilterResult.
+    }
 
     if (!products) {
         return (
@@ -34,13 +34,15 @@ const SearchResult: React.FC = () => {
         );
     } else {
 
+        console.log(products)
+
         return (
             <div className="resultDiv">
                 <div className="shortPageNav">
                     <NavLogo />
                 </div>
                 <div className="searchResultDiv">
-                    <FilterResult filterResult={filterByBrandFunc} />
+                    <FilterResult filterResult={filterByBrandFunc} products={products} />
                     <div className="searchResult">
                         {products.map(product => {
                             return (<div className="searchProduct">
