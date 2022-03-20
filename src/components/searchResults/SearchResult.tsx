@@ -26,6 +26,10 @@ const SearchResult: React.FC = () => {
         setProducts(filteredByBrand)
     }
 
+    const clearFilters = (clearedProducts: Product[]) => {
+        setProducts(clearedProducts)
+    }
+
     if (!products) {
         return (
             <div className="errorDiv">
@@ -34,15 +38,13 @@ const SearchResult: React.FC = () => {
         );
     } else {
 
-        console.log(products)
-
         return (
             <div className="resultDiv">
                 <div className="shortPageNav">
                     <NavLogo />
                 </div>
                 <div className="searchResultDiv">
-                    <FilterResult filterResult={filterByBrandFunc} products={products} />
+                    <FilterResult filterResult={filterByBrandFunc} clearFunc={clearFilters} products={products} productType={productType} />
                     <div className="searchResult">
                         {products.map(product => {
                             return (<div className="searchProduct">
