@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import "../../styles/searchResultStyles/searchResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
+import { useFormik } from "formik";
 
 interface ResultProps {
-    filterResult: (category: string, chosenOption: string) => void,
+    filterBrandResult: (category: string, chosenOption: string) => void,
+    filterPriceResult: (category: string, priceMin?: number, priceMax?: number) => void,
     clearFunc: (products: Product[]) => void,
     products: Product[]
     productType: string | undefined,
-
 }
 
 const FilterResult: React.FC<ResultProps> = props => {
@@ -31,6 +32,19 @@ const FilterResult: React.FC<ResultProps> = props => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
     }, []);
 
+    const formik = useFormik({
+        initialValues: {
+            priceMin: '',
+            priceMax: '',
+        },
+        onSubmit: (values) => {
+            const inputMinPrice = parseInt(values.priceMin)
+            const inputMaxPrice = parseInt(values.priceMax)
+
+            props.filterPriceResult('price', inputMinPrice)
+        },
+    });
+
     return (
         <div className="filters">
             <h2 className="filterHeading">Filter products</h2>
@@ -41,14 +55,22 @@ const FilterResult: React.FC<ResultProps> = props => {
                     <i className="bi bi-arrow-counterclockwise"></i>
                 </div>
                 {brands.map(brand => {
-                    return <p onClick={() => props.filterResult('brand', brand)} className="brands">{brand}</p>
+                    return <p onClick={() => props.filterBrandResult('brand', brand)} className="brands">{brand}</p>
                 })}
             </div>
             <div className="price">
                 <h4 className="producentHeading">Price</h4>
                 <div className="priceInputs">
-                    <input placeholder="from"></input>
-                    <input placeholder="to"></input>
+                    <form onSubmit={formik.handleSubmit}>
+                        <input name="priceMin" value={formik.values.priceMin}
+                            onChange={formik.handleChange} placeholder="from"></input>
+                        <input name="priceMax"
+                            value={formik.values.priceMax}
+                            onChange={formik.handleChange} placeholder="to"></input>
+                        <button className="hiddenSubmit" type="submit">
+                            Register
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

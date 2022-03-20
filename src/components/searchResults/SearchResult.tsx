@@ -26,6 +26,15 @@ const SearchResult: React.FC = () => {
         setProducts(filteredByBrand)
     }
 
+    const filterByPriceFunc = (chosenCategory: string, priceMin?: number, priceMax?: number) => {
+        const filteredByPrice = products.filter((product: any) => {
+            if (priceMin) {
+                return product[chosenCategory] > priceMin
+            }
+        })
+        setProducts(filteredByPrice)
+    }
+
     const clearFilters = (clearedProducts: Product[]) => {
         setProducts(clearedProducts)
     }
@@ -44,7 +53,7 @@ const SearchResult: React.FC = () => {
                     <NavLogo />
                 </div>
                 <div className="searchResultDiv">
-                    <FilterResult filterResult={filterByBrandFunc} clearFunc={clearFilters} products={products} productType={productType} />
+                    <FilterResult filterBrandResult={filterByBrandFunc} filterPriceResult={filterByPriceFunc} clearFunc={clearFilters} products={products} productType={productType} />
                     <div className="searchResult">
                         {products.map(product => {
                             return (<div className="searchProduct">

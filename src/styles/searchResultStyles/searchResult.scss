@@ -46,6 +46,12 @@
   cursor: pointer;
 }
 
+.hiddenSubmit {
+  position: absolute;
+  z-index: -10;
+  opacity: 0;
+}
+
 .filters {
   width: 22%;
   border: 1px solid grey;
