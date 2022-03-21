@@ -58,13 +58,17 @@
 @media screen and (max-width: 799px) {
   .searchBar {
     position: absolute;
-    width: 40%;
+    width: 80%;
     left: 0px;
     height: 92vh;
     top: 8vh;
     background-color: rgb(201, 201, 201);
     display: flex;
     flex-direction: column;
+    -webkit-box-shadow: 8px 8px 20px -3px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 20px -3px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 20px -3px rgba(66, 68, 90, 1);
+    border-bottom: none;
   }
 
   .searchBar div p {

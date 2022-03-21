@@ -5,7 +5,7 @@ import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
 import { useFormik } from "formik";
 
 interface ResultProps {
-    filterBrandResult: (category: string, chosenOption: string) => void,
+    filterAnythingButPriceResult: (category: string, chosenOption: string) => void,
     filterPriceResult: (category: string, priceMin?: number, priceMax?: number) => void,
     clearFunc: (products: Product[]) => void,
     products: Product[]
@@ -13,24 +13,29 @@ interface ResultProps {
 }
 
 const FilterResult: React.FC<ResultProps> = props => {
-    const [viewedProducts, setViewedProducts] = useState<Product[]>([])
+    const [viewedProducts, setViewedProducts] = useState<Product[]>([]) // Change this to be an array of only USED obj. properties. Withouy ID or IMG etc.
+    const [UniqueKeyValues, setUniqueKeyValus] = useState<string[]>([])
+    const [UniquePairsValues, setUniquePairsValues] = useState<any>([])
 
-    const brands = Array.from(new Set(props.products.map(products => products.brand)).values());
-    const screens = new Set(props.products.map(product => product.screen))
-    const prices = Array.from(new Set(props.products.map(product => product.price)).values());
-    const processors = new Set(props.products.map(product => product.processor))
-    const graphics = new Set(props.products.map(product => product.graphics))
-    const memory = new Set(props.products.map(product => product.price))
-    const cores = new Set(props.products.map(product => product.cores))
-    const caches = new Set(props.products.map(product => product.cache))
-    const screenSizes = new Set(props.products.map(product => product.screenSize))
-    const energyClasses = new Set(props.products.map(product => product.energyClass))
-    const colorTypes = new Set(props.products.map(product => product.color))
-    const wireTypes = new Set(props.products.map(product => product.type))
+    const brands = Array.from(new Set(viewedProducts.map(products => products.brand)).values());
 
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
     }, []);
+
+    useEffect(() => {
+        viewedProducts.map(productCategory => {
+            const keys = Array.from(Object.keys(productCategory).values());
+            setUniqueKeyValus(keys)
+        })
+    }, [viewedProducts]);
+
+    useEffect(() => {
+        UniqueKeyValues.forEach(val => {
+            const product = Array.from(new Set(viewedProducts.map(product => product[val])).values());
+            setUniquePairsValues(product)
+        })
+    }, [UniqueKeyValues]);
 
     const formik = useFormik({
         initialValues: {
@@ -41,21 +46,24 @@ const FilterResult: React.FC<ResultProps> = props => {
             const inputMinPrice = parseInt(values.priceMin)
             const inputMaxPrice = parseInt(values.priceMax)
 
-            props.filterPriceResult('price', inputMinPrice)
+            props.filterPriceResult('price', inputMinPrice, inputMaxPrice)
+
+            formik.resetForm()
         },
     });
 
+    console.log(viewedProducts)
     return (
         <div className="filters">
             <h2 className="filterHeading">Filter products</h2>
             <div className="producent">
-                <h4 className="producentHeading">Producent</h4>
                 <div className="clearFilters">
                     <p onClick={() => props.clearFunc(viewedProducts)}>Clear filters</p>
                     <i className="bi bi-arrow-counterclockwise"></i>
                 </div>
+                <h4 className="producentHeading">Producent</h4>
                 {brands.map(brand => {
-                    return <p onClick={() => props.filterBrandResult('brand', brand)} className="brands">{brand}</p>
+                    return <p onClick={() => props.filterAnythingButPriceResult('brand', brand)} className="brands">{brand}</p>
                 })}
             </div>
             <div className="price">
@@ -72,6 +80,15 @@ const FilterResult: React.FC<ResultProps> = props => {
                         </button>
                     </form>
                 </div>
+            </div>
+            <div className="restCategories">
+                {UniqueKeyValues.map(value => {
+                    return (
+                        <div>
+                            <h4 className="producentHeading">{value}</h4>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )

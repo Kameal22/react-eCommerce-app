@@ -1,4 +1,5 @@
 export interface Product {
+    [val: string]: string | number | undefined,
     key: string,
     name: string,
     brand: string,

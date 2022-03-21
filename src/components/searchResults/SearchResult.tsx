@@ -19,17 +19,21 @@ const SearchResult: React.FC = () => {
         }
     }, []);
 
-    const filterByBrandFunc = (chosenCategory: string, chosenOption: string) => {
-        const filteredByBrand = products.filter((product: any) => {
+    const filterByAnythingButPriceFunc = (chosenCategory: string, chosenOption: string) => {
+        const filteredByAnythingButPrice = products.filter((product: any) => {
             return product[chosenCategory] === chosenOption;
         });
-        setProducts(filteredByBrand)
+        setProducts(filteredByAnythingButPrice)
     }
 
     const filterByPriceFunc = (chosenCategory: string, priceMin?: number, priceMax?: number) => {
         const filteredByPrice = products.filter((product: any) => {
-            if (priceMin) {
+            if (priceMin && priceMax) {
+                return product[chosenCategory] > priceMin && product[chosenCategory] < priceMax
+            } else if (priceMin) {
                 return product[chosenCategory] > priceMin
+            } else if (priceMax) {
+                return product[chosenCategory] < priceMax
             }
         })
         setProducts(filteredByPrice)
@@ -53,7 +57,7 @@ const SearchResult: React.FC = () => {
                     <NavLogo />
                 </div>
                 <div className="searchResultDiv">
-                    <FilterResult filterBrandResult={filterByBrandFunc} filterPriceResult={filterByPriceFunc} clearFunc={clearFilters} products={products} productType={productType} />
+                    <FilterResult filterAnythingButPriceResult={filterByAnythingButPriceFunc} filterPriceResult={filterByPriceFunc} clearFunc={clearFilters} products={products} productType={productType} />
                     <div className="searchResult">
                         {products.map(product => {
                             return (<div className="searchProduct">
