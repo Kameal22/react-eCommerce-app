@@ -31,10 +31,12 @@ const FilterResult: React.FC<ResultProps> = props => {
     }, [viewedProducts]);
 
     useEffect(() => {
+        const pairValues: any = []
         UniqueKeyValues.forEach(val => {
             const product = Array.from(new Set(viewedProducts.map(product => product[val])).values());
-            setUniquePairsValues(product)
+            pairValues.push(product)
         })
+        setUniquePairsValues(pairValues)
     }, [UniqueKeyValues]);
 
     const formik = useFormik({
@@ -52,7 +54,7 @@ const FilterResult: React.FC<ResultProps> = props => {
         },
     });
 
-    console.log(viewedProducts)
+    console.log(UniquePairsValues)
     return (
         <div className="filters">
             <h2 className="filterHeading">Filter products</h2>
