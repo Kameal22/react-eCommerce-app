@@ -8,17 +8,24 @@ const SearchBar: React.FC = () => {
   const [productTypes] = useState(ProductTypesArray);
 
   return (
-    <div className="searchBar">
-      {productTypes.map((type) => {
-        return (
-          <SearchBarLink
-            key={type.name}
-            name={type.name}
-            iconClass={type.icon}
-            dropdowns={type.dropdowns}
-          />
-        );
-      })}
+    <div className="TEST">
+      <div className="searchBar">
+        {productTypes.map((type) => {
+          return (
+            <SearchBarLink
+              key={type.name}
+              name={type.name}
+              iconClass={type.icon}
+              dropdowns={type.dropdowns}
+            />
+          );
+        })}
+      </div>
+      <div className="hamburger">
+        <div className="firstLine"></div>
+        <div className="scdLine"></div>
+        <div className="thirdLine"></div>
+      </div>
     </div>
   );
 };

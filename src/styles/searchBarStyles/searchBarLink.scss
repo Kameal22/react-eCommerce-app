@@ -44,3 +44,20 @@
 .dropdownItem:hover {
   transform: translateX(5px);
 }
+
+@media screen and (max-width: 799px) {
+  .dropdownDiv {
+    display: flex;
+    flex-direction: column;
+    width: 10em;
+    position: absolute;
+    top: 80px;
+    -webkit-box-shadow: -6px 7px 13px -5px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -6px 7px 13px -5px rgba(66, 68, 90, 1);
+    box-shadow: -6px 7px 13px -5px rgba(66, 68, 90, 1);
+    background-color: rgba(238, 238, 238, 0.9);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    z-index: 999;
+  }
+}

@@ -5,6 +5,7 @@
   @include marginCenter();
   width: 80%;
   border-bottom: 2px solid rgb(48, 102, 202);
+  position: relative;
 }
 
 .searchBar div {
@@ -16,4 +17,65 @@
 
 .searchBar div p {
   margin-left: 2em;
+}
+
+.hamburger {
+  width: fit-content;
+  position: absolute;
+  left: 5%;
+  top: 85px;
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger div {
+  width: 25px;
+  margin: 6px;
+  height: 3px;
+  background-color: black;
+}
+
+@media screen and (max-width: 1225px) {
+  .searchBar div p {
+    font-size: 0.9em;
+  }
+
+  .searchBar div i {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .searchBar div p {
+    font-size: 0.8em;
+  }
+
+  .searchBar div i {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .searchBar {
+    position: absolute;
+    width: 40%;
+    left: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: rgb(201, 201, 201);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .searchBar div p {
+    color: black;
+  }
+
+  .searchBar div i {
+    color: rgb(48, 102, 202);
+  }
+
+  .hamburger {
+    display: block;
+  }
 }

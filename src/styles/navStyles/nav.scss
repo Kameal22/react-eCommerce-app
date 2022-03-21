@@ -7,3 +7,10 @@
   border-bottom: 2px solid rgb(48, 102, 202);
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 799px) {
+  .nav {
+    width: 90%;
+    border-bottom: none;
+  }
+}
