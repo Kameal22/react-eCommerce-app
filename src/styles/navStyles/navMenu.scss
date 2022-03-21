@@ -55,3 +55,22 @@
   margin-left: 0.3em;
   color: rgb(48, 102, 202);
 }
+
+@media screen and (max-width: 1225px) {
+  .navMenu {
+    flex-basis: 20%;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .navMenu {
+    flex-basis: 5%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .navMenu {
+    font-size: 0.8em;
+    flex-basis: 25%;
+  }
+}

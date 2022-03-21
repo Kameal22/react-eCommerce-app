@@ -8,10 +8,14 @@ const NavMenu: React.FC = () => {
   if (window.localStorage.user) {
     return (
       <div className="navMenu">
-        {NavMenuLogged.map(options => {
+        {NavMenuLogged.map((options) => {
           return (
-            <NavMenuItem linkPath={options.path} description={options.description} iconName={options.icon} />
-          )
+            <NavMenuItem
+              linkPath={options.path}
+              description={options.description}
+              iconName={options.icon}
+            />
+          );
         })}
         <div
           className="logoutDiv"
@@ -26,10 +30,14 @@ const NavMenu: React.FC = () => {
   } else {
     return (
       <div className="navMenu">
-        {NavMenuNotLogged.map(options => {
+        {NavMenuNotLogged.map((options) => {
           return (
-            <NavMenuItem linkPath={options.path} description={options.description} iconName={options.icon} />
-          )
+            <NavMenuItem
+              linkPath={options.path}
+              description={options.description}
+              iconName={options.icon}
+            />
+          );
         })}
       </div>
     );

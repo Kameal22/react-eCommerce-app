@@ -4,3 +4,10 @@
   flex-grow: 2;
   @include flexCenter(space-around);
 }
+
+@media screen and (max-width: 1080px) {
+  .navSearchForm {
+    width: 100%;
+    order: 9;
+  }
+}

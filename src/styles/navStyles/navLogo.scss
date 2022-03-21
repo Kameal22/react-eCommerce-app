@@ -6,3 +6,21 @@
   flex-grow: 1;
   flex-basis: 10%;
 }
+
+@media screen and (max-width: 1225px) {
+  .navLogo {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .navLogo {
+    flex-basis: 25%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .navLogo {
+    font-size: 0.7em;
+  }
+}
