@@ -11,3 +11,33 @@
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: 1225px) {
+  .websiteInfoDiv h3 {
+    font-size: 1em;
+  }
+  .websiteInfoDiv h4 {
+    font-size: 0.9em;
+  }
+  .websiteInfoDiv p {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .websiteInfoDiv h3 {
+    font-size: 0.9em;
+  }
+  .websiteInfoDiv h4 {
+    font-size: 0.8em;
+  }
+  .websiteInfoDiv p {
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .websiteInfoDiv {
+    display: none;
+  }
+}

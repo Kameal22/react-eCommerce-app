@@ -11,3 +11,22 @@
 .leftFooterDiv p {
   font-size: 0.9em;
 }
+
+@media screen and (max-width: 1225px) {
+  .leftFooterDiv p {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .leftFooterDiv p {
+    font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .leftFooterDiv p {
+    font-size: 0.6em;
+    flex-grow: 2;
+  }
+}

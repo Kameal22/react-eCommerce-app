@@ -11,3 +11,39 @@
   text-decoration: none;
   color: rgb(48, 102, 202);
 }
+
+@media screen and (max-width: 1225px) {
+  .advBanner h1 {
+    font-size: 1.5em;
+  }
+  .advBanner h2 {
+    font-size: 1.4em;
+  }
+  .advBanner h3 {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .advBanner h1 {
+    font-size: 1.2em;
+  }
+  .advBanner h2 {
+    font-size: 1em;
+  }
+  .advBanner h3 {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .advBanner h1 {
+    font-size: 1em;
+  }
+  .advBanner h2 {
+    font-size: 0.9em;
+  }
+  .advBanner h3 {
+    font-size: 0.8em;
+  }
+}

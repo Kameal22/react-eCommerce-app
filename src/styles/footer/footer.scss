@@ -7,3 +7,30 @@
   justify-content: space-between;
   padding-bottom: 2vh;
 }
+
+@media screen and (max-width: 1225px) {
+  .footerDiv h2 {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .footerDiv h2 {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .footerDiv h2 {
+    font-size: 1em;
+  }
+  .footerDiv {
+    width: 80%;
+    @include marginCenter();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2vh;
+  }
+}
