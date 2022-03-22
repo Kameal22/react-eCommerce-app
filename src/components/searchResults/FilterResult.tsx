@@ -13,20 +13,23 @@ interface ResultProps {
 }
 
 const FilterResult: React.FC<ResultProps> = props => {
-    const [viewedProducts, setViewedProducts] = useState<Product[]>([]) // Change this to be an array of only USED obj. properties. Withouy ID or IMG etc.
+    const [viewedProducts, setViewedProducts] = useState<Product[]>([])
     const [UniqueKeyValues, setUniqueKeyValus] = useState<string[]>([])
     const [UniquePairsValues, setUniquePairsValues] = useState<any>([])
 
-    const brands = Array.from(new Set(viewedProducts.map(products => products.brand)).values());
+    const brands = Array.from(new Set(props.products.map(products => products.brand)).values());
 
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
     }, []);
 
     useEffect(() => {
+        const unwantedVals = ["_id", "name", "img", "scdImg", "category", "__v", "price"]
         viewedProducts.map(productCategory => {
             const keys = Array.from(Object.keys(productCategory).values());
-            setUniqueKeyValus(keys)
+            const neededKeys = keys.filter(keys => keys !== unwantedVals[0] && keys !== unwantedVals[1] && keys !== unwantedVals[2] && keys !== unwantedVals[3] && keys !== unwantedVals[4] && keys !== unwantedVals[5] && keys !== unwantedVals[6])
+
+            setUniqueKeyValus(neededKeys)
         })
     }, [viewedProducts]);
 
@@ -34,7 +37,8 @@ const FilterResult: React.FC<ResultProps> = props => {
         const pairValues: any = []
         UniqueKeyValues.forEach(val => {
             const product = Array.from(new Set(viewedProducts.map(product => product[val])).values());
-            pairValues.push(product)
+            const obj = { name: val, values: [product] }
+            pairValues.push(obj)
         })
         setUniquePairsValues(pairValues)
     }, [UniqueKeyValues]);
@@ -54,7 +58,13 @@ const FilterResult: React.FC<ResultProps> = props => {
         },
     });
 
-    console.log(UniquePairsValues)
+    UniquePairsValues.map((values: any) => {
+        console.log(values.name)
+        console.log(values.values)
+    })
+
+    // WRITE INTERFACE FOR UNIQUEPAIRSVALUES BCUS TYPESCRIPTS A BITCH
+
     return (
         <div className="filters">
             <h2 className="filterHeading">Filter products</h2>
@@ -83,11 +93,12 @@ const FilterResult: React.FC<ResultProps> = props => {
                     </form>
                 </div>
             </div>
-            <div className="restCategories">
-                {UniqueKeyValues.map(value => {
+            <div className="producent">
+                {UniquePairsValues.map((values: any) => {
                     return (
                         <div>
-                            <h4 className="producentHeading">{value}</h4>
+                            <h4 className="producentHeading">{values.name}</h4>
+                            <p className="brands">{values.values}</p>
                         </div>
                     )
                 })}
