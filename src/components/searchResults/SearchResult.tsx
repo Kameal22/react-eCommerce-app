@@ -19,7 +19,7 @@ const SearchResult: React.FC = () => {
         }
     }, []);
 
-    const filterByAnythingButPriceFunc = (chosenCategory: string, chosenOption: string) => {
+    const filterByAnythingButPriceFunc = (chosenCategory: string, chosenOption: string | number) => {
         const filteredByAnythingButPrice = products.filter((product: any) => {
             return product[chosenCategory] === chosenOption;
         });

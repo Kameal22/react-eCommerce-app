@@ -5,7 +5,7 @@ import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
 import { useFormik } from "formik";
 
 interface ResultProps {
-    filterAnythingButPriceResult: (category: string, chosenOption: string) => void,
+    filterAnythingButPriceResult: (category: string, chosenOption: string | number) => void,
     filterPriceResult: (category: string, priceMin?: number, priceMax?: number) => void,
     clearFunc: (products: Product[]) => void,
     products: Product[]
@@ -17,26 +17,24 @@ const FilterResult: React.FC<ResultProps> = props => {
     const [UniqueKeyValues, setUniqueKeyValus] = useState<string[]>([])
     const [UniquePairsValues, setUniquePairsValues] = useState<any>([])
 
-    const brands = Array.from(new Set(props.products.map(products => products.brand)).values());
-
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
     }, []);
 
     useEffect(() => {
         const unwantedVals = ["_id", "name", "img", "scdImg", "category", "__v", "price"]
-        viewedProducts.map(productCategory => {
+        props.products.map(productCategory => {
             const keys = Array.from(Object.keys(productCategory).values());
             const neededKeys = keys.filter(keys => keys !== unwantedVals[0] && keys !== unwantedVals[1] && keys !== unwantedVals[2] && keys !== unwantedVals[3] && keys !== unwantedVals[4] && keys !== unwantedVals[5] && keys !== unwantedVals[6])
 
             setUniqueKeyValus(neededKeys)
         })
-    }, [viewedProducts]);
+    }, [props.products]);
 
     useEffect(() => {
         const pairValues: any = []
         UniqueKeyValues.forEach(val => {
-            const product = Array.from(new Set(viewedProducts.map(product => product[val])).values());
+            const product = Array.from(new Set(props.products.map(product => product[val])).values());
             const obj = { name: val, values: [product] }
             pairValues.push(obj)
         })
@@ -58,25 +56,24 @@ const FilterResult: React.FC<ResultProps> = props => {
         },
     });
 
-    UniquePairsValues.map((values: any) => {
-        console.log(values.name)
-        console.log(values.values)
-    })
-
-    // WRITE INTERFACE FOR UNIQUEPAIRSVALUES BCUS TYPESCRIPTS A BITCH
-
     return (
         <div className="filters">
             <h2 className="filterHeading">Filter products</h2>
-            <div className="producent">
-                <div className="clearFilters">
-                    <p onClick={() => props.clearFunc(viewedProducts)}>Clear filters</p>
-                    <i className="bi bi-arrow-counterclockwise"></i>
-                </div>
-                <h4 className="producentHeading">Producent</h4>
-                {brands.map(brand => {
-                    return <p onClick={() => props.filterAnythingButPriceResult('brand', brand)} className="brands">{brand}</p>
-                })}
+            <div className="clearFilters">
+                <p onClick={() => props.clearFunc(viewedProducts)}>Clear filters</p>
+                <i className="bi bi-arrow-counterclockwise"></i>
+            </div>
+            <div className="productOptions">
+                {UniquePairsValues.map((values: any) => (
+                    <div className="test">
+                        <h4 className="producentHeading">{values.name}</h4>
+                        {values.values[0].map((value: string | number) => {
+                            return (
+                                <p onClick={() => props.filterAnythingButPriceResult(values.name, value)} className="brands">{value}</p>
+                            )
+                        })}
+                    </div>
+                ))}
             </div>
             <div className="price">
                 <h4 className="producentHeading">Price</h4>
@@ -92,16 +89,6 @@ const FilterResult: React.FC<ResultProps> = props => {
                         </button>
                     </form>
                 </div>
-            </div>
-            <div className="producent">
-                {UniquePairsValues.map((values: any) => {
-                    return (
-                        <div>
-                            <h4 className="producentHeading">{values.name}</h4>
-                            <p className="brands">{values.values}</p>
-                        </div>
-                    )
-                })}
             </div>
         </div>
     )

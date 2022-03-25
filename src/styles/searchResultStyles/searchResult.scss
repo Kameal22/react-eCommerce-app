@@ -17,9 +17,8 @@
 .searchResult {
   width: 78%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .priceInputs {
@@ -67,6 +66,11 @@
   text-align: center;
 }
 
+.productOptions {
+  display: flex;
+  flex-direction: column;
+}
+
 .brands {
   width: 80%;
   padding-bottom: 1vh;
@@ -82,6 +86,7 @@
   margin-top: 4vh;
   align-items: center;
   border-radius: 25px;
+  height: fit-content;
 }
 
 .searchProduct:hover {
@@ -101,4 +106,8 @@
 .searchResultImg {
   width: 40%;
   height: 40%;
+}
+
+.singleOption {
+  border: 1px solid blue;
 }
