@@ -14,7 +14,6 @@ const RegisterForm: React.FC = () => {
       name: "",
       email: "",
       password: "",
-      // acceptTerms: false,
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -24,10 +23,6 @@ const RegisterForm: React.FC = () => {
       password: Yup.string()
         .min(6, "Must be at least 6 characters")
         .required("Required"),
-      // acceptTerms: Yup.bool().oneOf(
-      //   [true],
-      //   "Accept Terms & Conditions is required"
-      // ),
     }),
     onSubmit: (values) => {
       const inputName = values.name;
@@ -40,10 +35,7 @@ const RegisterForm: React.FC = () => {
         password: inputPassword
       })
         .then(res => {
-          console.log(res)
           window.localStorage.setItem('user', inputName);
-        })
-        .then(res => {
           navigate(`/`, { replace: true });
         })
         .catch(err => {

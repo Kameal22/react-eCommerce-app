@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../styles/profileStyles/loginForm.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -7,8 +7,7 @@ import { TextField } from "@mui/material";
 import axios from "axios";
 
 const LoginForm: React.FC = () => {
-  // const [name, setName] = useState<string>("");
-  // const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -28,10 +27,11 @@ const LoginForm: React.FC = () => {
         password: inputPassword
       })
         .then(res => {
-          console.log(res)
+          window.localStorage.setItem('user', inputName);
+          navigate(`/`, { replace: true });
         })
-        .catch(res => {
-          console.log(res)
+        .catch(err => {
+          console.log(err)
         })
       formik.resetForm();
     },

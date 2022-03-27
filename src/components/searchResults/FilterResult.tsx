@@ -4,6 +4,10 @@ import { Product } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
 import { useFormik } from "formik";
 
+interface UniquePairsInterface {
+    name: string; values: (string | number | undefined)[][]
+}
+
 interface ResultProps {
     filterAnythingButPriceResult: (category: string, chosenOption: string | number) => void,
     filterPriceResult: (category: string, priceMin?: number, priceMax?: number) => void,
@@ -15,7 +19,7 @@ interface ResultProps {
 const FilterResult: React.FC<ResultProps> = props => {
     const [viewedProducts, setViewedProducts] = useState<Product[]>([])
     const [UniqueKeyValues, setUniqueKeyValus] = useState<string[]>([])
-    const [UniquePairsValues, setUniquePairsValues] = useState<any>([])
+    const [UniquePairsValues, setUniquePairsValues] = useState<UniquePairsInterface[]>([])
 
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
@@ -32,7 +36,7 @@ const FilterResult: React.FC<ResultProps> = props => {
     }, [props.products]);
 
     useEffect(() => {
-        const pairValues: any = []
+        const pairValues: UniquePairsInterface[] = []
         UniqueKeyValues.forEach(val => {
             const product = Array.from(new Set(props.products.map(product => product[val])).values());
             const obj = { name: val, values: [product] }
