@@ -2,6 +2,7 @@
 
 .nav {
   @include flexCenter(space-between);
+  align-items: center;
   @include marginCenter();
   width: 80%;
   border-bottom: 2px solid rgb(48, 102, 202);

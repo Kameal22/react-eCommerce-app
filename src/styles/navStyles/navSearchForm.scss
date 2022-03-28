@@ -5,6 +5,11 @@
   @include flexCenter(space-around);
 }
 
+.mainSearchFormInput {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 1080px) {
   .navSearchForm {
     width: 100%;
