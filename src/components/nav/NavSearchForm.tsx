@@ -4,24 +4,26 @@ import { useFormik } from "formik";
 import { fetchEverything } from "../../utills/FetchProductsFunc";
 
 const NavSearchForm: React.FC = () => {
-  const [allProduct, setAllProducts] = useState<any>([]); //This is done because I don't want to struggle with sorting data on backend.
+  const [allProductNames, setAllProductNames] = useState<any>([]); //This is done because I don't want to struggle with sorting data on backend.
+  const [allProducts, setAllProducts] = useState<any[]>([]); //This is done because I don't want to struggle with sorting data on backend.
   const [filteredData, setFilteredData] = useState<any>([]);
+  const [suggestions, setSuggestions] = useState<any>([]);
 
   useEffect(() => {
-    fetchEverything(setAllProducts)
+    fetchEverything(setAllProducts, setAllProductNames)
   }, []) //This is done because I don't want to struggle with sorting data on backend.
 
-  useEffect(() => {
-    console.log(filteredData)
-  }, [filteredData])
+  // Now after a choice look for chosen value in allProducts array and use it
 
   const handleOnChange = (e: any) => {
     let searchValue = e.target.value
 
-    const filteted = allProduct.filter((product: any) => {
+    const filteted = allProductNames.filter((product: any) => {
       return product.toLowerCase().includes(searchValue.toLowerCase())
     })
-    setFilteredData(filteted)
+    setFilteredData(filteted) //This might not be needed
+
+    //Now look for filtered values in allProduct and set them to suggestions with IMG and NAME.
   };
 
   const formik = useFormik({

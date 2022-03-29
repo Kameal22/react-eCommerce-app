@@ -2,18 +2,21 @@ import axios from "axios";
 import { SetStateAction } from "react";
 import { Product } from "../interfaces/ProductInterface";
 
-export const fetchEverything = async (setProducts: React.Dispatch<React.SetStateAction<any[]>>) => {
+export const fetchEverything = async (setProducts: React.Dispatch<React.SetStateAction<any[]>>, setProductNames: React.Dispatch<React.SetStateAction<any[]>>) => {
   const response = await axios.get("http://localhost:3000/everything");
 
+  const products: SetStateAction<any[]> = []
   const nameValues: SetStateAction<any[]> = []
 
   response.data.forEach((product: any) => {
     product.forEach((prod: any) => {
       nameValues.push(prod.name)
+      products.push(prod)
     })
   })
 
-  setProducts(nameValues)
+  setProducts(products)
+  setProductNames(nameValues)
 }
 
 export const fetchAndSetProductsFunc = async (
