@@ -2,12 +2,27 @@
 
 .navSearchForm {
   flex-grow: 2;
-  @include flexCenter(space-around);
+  display: flex;
+  align-items: center;
 }
 
-.mainSearchFormInput {
-  display: inline-block;
-  margin-bottom: 20px;
+.mainSearchForm {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#searchIcon {
+  position: absolute;
+  right: 10px;
+}
+
+.mainSearchField {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid lightslategray;
 }
 
 @media screen and (max-width: 1080px) {
