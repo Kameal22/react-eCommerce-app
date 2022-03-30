@@ -4,6 +4,30 @@
   flex-grow: 2;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.searchHints {
+  position: absolute;
+  top: 38px;
+  border-top: none;
+  border-radius: 10px;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: auto;
+  width: 90%;
+  z-index: 1000;
+  background-color: rgba(238, 238, 238, 0.9);
+}
+
+.searchHints p {
+  margin-left: 1em;
+  cursor: pointer;
+  color: black;
+}
+
+.searchHints p:hover {
+  color: rgb(48, 102, 202);
 }
 
 .mainSearchForm {
@@ -29,5 +53,24 @@
   .navSearchForm {
     width: 100%;
     order: 9;
+  }
+
+  .mainSearchForm {
+    width: 50%;
+    @include marginCenter();
+    margin-bottom: 0.5vh;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .navMenu {
+    font-size: 0.8em;
+    flex-basis: 25%;
+  }
+
+  .mainSearchForm {
+    width: 70%;
+    @include marginCenter();
+    margin-bottom: 0.5vh;
   }
 }
