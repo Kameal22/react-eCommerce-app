@@ -2,13 +2,13 @@ import React, { useContext, useState, useEffect } from "react";
 import Footer from "../../footer/Footer";
 import NavLogo from "../../nav/NavLogo";
 import "../../../styles/profileStyles/wishlist.scss";
-import { WishlistInterface } from "../../../interfaces/WishlistInterface";
+import { WishlistAndLastWatchedInterface } from "../../../interfaces/LastWatchedInterface";
 import { WishlistContext } from "../../../contexts/WishListContext";
 import WishlistProduct from "./WishlistProduct";
 
 const Wishlist: React.FC = () => {
   const wishlistContext = useContext(WishlistContext);
-  const [wishlist, setWishlist] = useState<WishlistInterface[]>([]);
+  const [wishlist, setWishlist] = useState<WishlistAndLastWatchedInterface[]>([]);
 
   useEffect(() => {
     setWishlist(wishlistContext);

@@ -1,4 +1,4 @@
-export interface LastWatchedInterface {
+export interface WishlistAndLastWatchedInterface {
     name: string,
     img: string,
     price: number,

@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useState } from "react";
-import { WishlistInterface } from "../interfaces/WishlistInterface";
+import { WishlistAndLastWatchedInterface } from "../interfaces/LastWatchedInterface";
 
-export const WishlistContext = createContext<WishlistInterface[]>([]);
+export const WishlistContext = createContext<WishlistAndLastWatchedInterface[]>([]);
 
 export const SetWishlistContext = createContext<
-  React.Dispatch<React.SetStateAction<WishlistInterface[]>> | undefined
+  React.Dispatch<React.SetStateAction<WishlistAndLastWatchedInterface[]>> | undefined
 >(undefined);
 
 export const useSetWishlist = () => {
@@ -17,7 +17,7 @@ export const useSetWishlist = () => {
 };
 
 export const WishlistProvider: React.FC = ({ children }) => {
-  const [wishlist, setWishlist] = useState<WishlistInterface[]>([]);
+  const [wishlist, setWishlist] = useState<WishlistAndLastWatchedInterface[]>([]);
 
   return (
     <WishlistContext.Provider value={wishlist}>

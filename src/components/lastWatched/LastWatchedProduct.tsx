@@ -1,16 +1,9 @@
 import React from "react";
 import "../../styles/lastWatchedStyles/lastWatchedProduct.scss";
 import { Link } from "react-router-dom";
+import { WishlistAndLastWatchedInterface } from "../../interfaces/LastWatchedInterface";
 
-interface latelyWatched {
-  name: string;
-  img: string;
-  price: number;
-  category: string;
-  id: string;
-}
-
-const LastWatchedProduct: React.FC<latelyWatched> = (props) => {
+const LastWatchedProduct: React.FC<WishlistAndLastWatchedInterface> = (props) => {
   return (
     <div className="lastWatchedProduct">
       <Link

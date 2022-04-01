@@ -37,6 +37,14 @@ const SpecificResult: React.FC = () => {
         }
     }
 
+    const handleSetFullfilledLastWatched = (name: string, img: string, price: number, category: string, id: string) => {
+        if (!lasties.some((products) => products.name === name)) {
+            setLastWatched((lw => {
+                return [{ name: name, img: img, price: price, category: category, id: id }, ...lw]
+            }))
+        }
+    }
+
     const handleSetWishlist = (name: string, img: string, price: number, category: string, id: string) => {
         setWishlist((product => {
             return [...product, { name: name, img: img, price: price, category: category, id: id }]
@@ -53,8 +61,12 @@ const SpecificResult: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        if (product)
+        if (product && lasties.length <= 4) {
             handleSetLastWatched(product.name, product.img, product.price, product.category, product._id)
+        } else if (product && lasties.length > 4) {
+            lasties.pop()
+            handleSetFullfilledLastWatched(product.name, product.img, product.price, product.category, product._id)
+        }
     }, [product])
 
     useEffect(() => {

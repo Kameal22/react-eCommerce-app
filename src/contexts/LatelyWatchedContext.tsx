@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useState } from "react";
-import { LastWatchedInterface } from "../interfaces/LastWatchedInterface";
+import { WishlistAndLastWatchedInterface } from "../interfaces/LastWatchedInterface";
 
-export const LatelyWatchedContext = createContext<LastWatchedInterface[]>([])
+export const LatelyWatchedContext = createContext<WishlistAndLastWatchedInterface[]>([])
 
 export const SetLWContext = createContext<
-    React.Dispatch<React.SetStateAction<LastWatchedInterface[]>> | undefined
+    React.Dispatch<React.SetStateAction<WishlistAndLastWatchedInterface[]>> | undefined
 >(undefined);
 
 export const useSetLW = () => {
@@ -17,7 +17,7 @@ export const useSetLW = () => {
 }
 
 export const LWProvider: React.FC = ({ children }) => {
-    const [lastWatched, setLastWatched] = useState<LastWatchedInterface[]>([]);
+    const [lastWatched, setLastWatched] = useState<WishlistAndLastWatchedInterface[]>([]);
 
     return (
         <LatelyWatchedContext.Provider value={lastWatched}>

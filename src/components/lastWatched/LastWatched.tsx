@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
 import { LatelyWatchedContext } from "../../contexts/LatelyWatchedContext";
-import { LastWatchedInterface } from "../../interfaces/LastWatchedInterface";
+import { WishlistAndLastWatchedInterface } from "../../interfaces/LastWatchedInterface";
 import "../../styles/lastWatchedStyles/lastWatched.scss";
 import LastWatchedProduct from "./LastWatchedProduct";
 
 const LastWatched: React.FC = () => {
   const lasties = useContext(LatelyWatchedContext);
-  const [lastWatched, setLastWatched] = useState<LastWatchedInterface[]>([]);
+  const [lastWatched, setLastWatched] = useState<WishlistAndLastWatchedInterface[]>([]);
 
   useEffect(() => {
     setLastWatched(lasties);
