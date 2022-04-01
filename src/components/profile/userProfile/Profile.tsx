@@ -2,12 +2,17 @@ import React from "react";
 import Footer from "../../footer/Footer";
 import NavLogo from "../../nav/NavLogo";
 import "../../../styles/profileStyles/profile.scss";
-
-const userName = window.localStorage.user
-
-//Username isn't working. I have to use State to update DOM
+import { useState, useEffect } from "react";
 
 const Profile: React.FC = () => {
+  const [username, setUsername] = useState<string>('')
+  const userName = window.localStorage.user
+
+  useEffect(() => {
+    setUsername(userName)
+  }, [])
+
+
   return (
     <div className="profile">
       <div className="shortPageNav">
@@ -17,7 +22,7 @@ const Profile: React.FC = () => {
         <div className="profileInfo">
           <div className="profileName">
             <p>Hi</p>
-            <h4>{userName}</h4>
+            <h4>{username}</h4>
           </div>
           <div className="profileOptions">
             <div className="orders">

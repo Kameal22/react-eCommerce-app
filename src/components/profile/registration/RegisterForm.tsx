@@ -36,6 +36,8 @@ const RegisterForm: React.FC = () => {
       })
         .then(res => {
           window.localStorage.setItem('user', inputName);
+        })
+        .then(res => {
           navigate(`/`, { replace: true });
         })
         .catch(err => {
@@ -48,7 +50,7 @@ const RegisterForm: React.FC = () => {
   return (
     <div className="registerFormDiv">
       <h1 className="registerHeading">Register</h1>
-      <form onSubmit={formik.handleSubmit}>
+      <form autoComplete="off" onSubmit={formik.handleSubmit}>
         <div className="registerFormInputs">
           <TextField
             id="standard-basic"

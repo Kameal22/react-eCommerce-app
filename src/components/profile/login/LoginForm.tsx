@@ -5,8 +5,12 @@ import * as Yup from "yup";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import axios from "axios";
+import { useState } from "react";
+
+//Create error on wrong username/password
 
 const LoginForm: React.FC = () => {
+  const [error, setError] = useState(false)
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -40,7 +44,7 @@ const LoginForm: React.FC = () => {
   return (
     <div className="loginFormDiv">
       <h1 className="loginHeading">Log in</h1>
-      <form onSubmit={formik.handleSubmit}>
+      <form autoComplete="off" onSubmit={formik.handleSubmit}>
         <div className="loginFormInputs">
           <TextField
             id="standard-basic"
