@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   width: 50%;
   border: 1px solid grey;
   border-radius: 25px;
@@ -107,4 +108,10 @@
   top: 10%;
   right: 3%;
   cursor: pointer;
+}
+
+#wishingIcon{
+  position: absolute;
+  top: 20px;
+  left: 30px;
 }

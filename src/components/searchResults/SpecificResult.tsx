@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { LatelyWatchedContext } from "../../contexts/LatelyWatchedContext";
+import { LatelyWatchedContext, useSetLW } from "../../contexts/LatelyWatchedContext";
 import { useParams } from "react-router-dom";
 import "../../styles/searchResultStyles/specificResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
@@ -7,26 +7,52 @@ import { fetchAndSetProductsFuncWithParams } from "../../utills/FetchProductsFun
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
 import { useSetCart } from "../../contexts/CartContext";
-import { v4 as uuid } from 'uuid';
-import { useSetLW } from "../../contexts/LatelyWatchedContext";
-import { useSetWishlist } from "../../contexts/WishListContext";
+import { v4 as uuid } from 'uuid'
+import { useSetWishlist, WishlistContext } from "../../contexts/WishListContext";
+import Popup from "../../utills/Popup";
 
 const SpecificResult: React.FC = () => {
     const setCart = useSetCart();
     const setLastWatched = useSetLW();
     const setWishlist = useSetWishlist();
     const lasties = useContext(LatelyWatchedContext);
+    const wishes = useContext(WishlistContext);
 
     const { productType, productId } = useParams();
     const [product, setProduct] = useState<Product>();
     const [currImg, setCurrImg] = useState<string>();
-    const [addedTo, setAddedTo] = useState<string>('');
+    const [popUpMsg, setPopUpMsg] = useState<string>();
+
+    useEffect(() => {
+        fetchAndSetProductsFuncWithParams(productType, productId, setProduct)
+    }, []);
+
+    useEffect(() => {
+        if (product && lasties.length <= 4) {
+            handleSetLastWatched(product.name, product.img, product.price, product.category, product._id)
+        } else if (product && lasties.length > 4) {
+            lasties.pop()
+            handleSetFullfilledLastWatched(product.name, product.img, product.price, product.category, product._id)
+        }
+    }, [product])
+
+    useEffect(() => {
+        setCurrImg(product?.img)
+    }, [product])
+
+    const IsWishingForProduct = () => {
+        if (wishes.find(wish => wish.name === product?.name)) {
+            return true
+        } else {
+            return false
+        }
+    }
 
     const handleSetCart = (id: string, name: string, img: string, price: number) => {
         setCart((cart) => {
             return [...cart, { id: id, name: name, img: img, price: price }]
         })
-        setAddedTo('Cart')
+        setPopUpMsg('Added to cart')
     }
 
     const handleSetLastWatched = (name: string, img: string, price: number, category: string, id: string) => {
@@ -46,32 +72,19 @@ const SpecificResult: React.FC = () => {
     }
 
     const handleSetWishlist = (name: string, img: string, price: number, category: string, id: string) => {
-        setWishlist((product => {
-            return [...product, { name: name, img: img, price: price, category: category, id: id }]
-        }))
-        setAddedTo('Wishlist')
-    }
-
-    const clearPopup = () => {
-        setAddedTo('')
-    }
-
-    useEffect(() => {
-        fetchAndSetProductsFuncWithParams(productType, productId, setProduct)
-    }, []);
-
-    useEffect(() => {
-        if (product && lasties.length <= 4) {
-            handleSetLastWatched(product.name, product.img, product.price, product.category, product._id)
-        } else if (product && lasties.length > 4) {
-            lasties.pop()
-            handleSetFullfilledLastWatched(product.name, product.img, product.price, product.category, product._id)
+        if (!wishes.some(wish => wish.name === name)) {
+            setWishlist((product => {
+                return [...product, { name: name, img: img, price: price, category: category, id: id }]
+            }))
+            setPopUpMsg('Added to wishlist')
+        } else {
+            setPopUpMsg('You alredy think about this one')
         }
-    }, [product])
+    }
 
-    useEffect(() => {
-        setCurrImg(product?.img)
-    }, [product])
+    const clearPopUp = () => {
+        setPopUpMsg('')
+    }
 
     const changeImg = () => {
         if (currImg === product?.img) {
@@ -94,6 +107,7 @@ const SpecificResult: React.FC = () => {
                 <div className="specificResultDiv">
                     <div className="resultItem">
                         <h2 className="productHeading">{product.name}</h2>
+                        {IsWishingForProduct() ? <i id="wishingIcon" style={{ fontSize: "2em", color: "red" }} className="bi bi-balloon-heart"></i> : null}
                         <div className="imgDiv">
                             <i onClick={changeImg} id="leftArrow" className="bi bi-arrow-left-circle" style={{ fontSize: "1.4em" }}></i>
                             <img className="searchResultImg" src={currImg}></img>
@@ -121,7 +135,7 @@ const SpecificResult: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="popUpDiv">{addedTo === '' ? null : <div><h4>Added to {addedTo}!</h4> <i onClick={clearPopup} style={{ fontSize: "1.3em" }} className="bi bi-x"></i></div>}</div>
+                <Popup msg={popUpMsg} clearMsg={clearPopUp} />
                 <div className="shortPageFooter">
                     <Footer />
                 </div>

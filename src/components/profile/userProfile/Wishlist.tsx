@@ -19,7 +19,8 @@ const Wishlist: React.FC = () => {
       <div className="shortPageNav">
         <NavLogo />
       </div>
-      <h3 className="wishlistHeading">Your wishlist</h3>
+      {wishlist.length > 0 ? <h3 className="wishlistHeading">Your wishlist</h3> : <h3 className="emptyWishlist">Wishlist is empty</h3>}
+
       <div className="wishlistDiv">
         {wishlist.map((product) => {
           return (

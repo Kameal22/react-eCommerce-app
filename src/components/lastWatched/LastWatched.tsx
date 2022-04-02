@@ -12,24 +12,30 @@ const LastWatched: React.FC = () => {
     setLastWatched(lasties);
   }, [lasties]);
 
-  return (
-    <div>
-      <p className="info">Lately watched</p>
-      <div className="lastWatchedDiv">
-        {lastWatched.map((product) => {
-          return (
-            <LastWatchedProduct
-              name={product.name}
-              img={product.img}
-              price={product.price}
-              category={product.category}
-              id={product.id}
-            />
-          );
-        })}
+  console.log(lasties.length)
+
+  if (lasties.length > 0) {
+    return (
+      <div>
+        <p className="info">Lately watched</p>
+        <div className="lastWatchedDiv">
+          {lastWatched.map((product) => {
+            return (
+              <LastWatchedProduct
+                name={product.name}
+                img={product.img}
+                price={product.price}
+                category={product.category}
+                id={product.id}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return null
+  }
 };
 
 export default LastWatched;

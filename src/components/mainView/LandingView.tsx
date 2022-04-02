@@ -9,6 +9,7 @@ import Footer from "../footer/Footer";
 import LastWatched from "../lastWatched/LastWatched";
 
 const LandingView: React.FC = () => {
+
   return (
     <div className="App">
       <Nav />
