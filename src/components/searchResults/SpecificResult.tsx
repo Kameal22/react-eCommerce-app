@@ -6,10 +6,11 @@ import { Product } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFuncWithParams } from "../../utills/FetchProductsFunc";
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
-import { useSetCart } from "../../contexts/CartContext";
+import { useSetCart, CartContext } from "../../contexts/CartContext";
 import { v4 as uuid } from 'uuid'
 import { useSetWishlist, WishlistContext } from "../../contexts/WishListContext";
 import Popup from "../../utills/Popup";
+import { isProductInCartOrWishlist } from "../../utills/ProductAppeareance";
 
 const SpecificResult: React.FC = () => {
     const setCart = useSetCart();
@@ -17,6 +18,7 @@ const SpecificResult: React.FC = () => {
     const setWishlist = useSetWishlist();
     const lasties = useContext(LatelyWatchedContext);
     const wishes = useContext(WishlistContext);
+    const cart = useContext(CartContext)
 
     const { productType, productId } = useParams();
     const [product, setProduct] = useState<Product>();
@@ -39,14 +41,6 @@ const SpecificResult: React.FC = () => {
     useEffect(() => {
         setCurrImg(product?.img)
     }, [product])
-
-    const IsWishingForProduct = () => {
-        if (wishes.find(wish => wish.name === product?.name)) {
-            return true
-        } else {
-            return false
-        }
-    }
 
     const handleSetCart = (id: string, name: string, img: string, price: number) => {
         setCart((cart) => {
@@ -107,7 +101,8 @@ const SpecificResult: React.FC = () => {
                 <div className="specificResultDiv">
                     <div className="resultItem">
                         <h2 className="productHeading">{product.name}</h2>
-                        {IsWishingForProduct() ? <i id="wishingIcon" style={{ fontSize: "2em", color: "red" }} className="bi bi-balloon-heart"></i> : null}
+                        {isProductInCartOrWishlist(wishes, product) ? <i id="wishingIcon" style={{ fontSize: "2em", color: "red" }} className="bi bi-balloon-heart"></i> : null}
+                        {isProductInCartOrWishlist(cart, product) ? <i id="cartIcon" style={{ fontSize: "2em", color: "red" }} className="bi bi-cart-check"></i> : null}
                         <div className="imgDiv">
                             <i onClick={changeImg} id="leftArrow" className="bi bi-arrow-left-circle" style={{ fontSize: "1.4em" }}></i>
                             <img className="searchResultImg" src={currImg}></img>
