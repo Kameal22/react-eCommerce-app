@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../styles/searchBarStyles/searchBar.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { ProductTypesArray } from "../../utills/ProductTypes";

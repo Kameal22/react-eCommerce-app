@@ -2,11 +2,8 @@ import "../../styles/navStyles/navMenu.scss";
 import { Logout } from "../../utills/Logout";
 import { NavMenuLogged, NavMenuNotLogged } from "../../utills/NavMenuData";
 import NavMenuItem from "./NavMenuItem";
-import { CartContext } from "../../contexts/CartContext";
-import { useContext } from "react";
 
 const NavMenu: React.FC = () => {
-  const cart = useContext(CartContext);
 
   if (window.localStorage.user) {
     return (
@@ -14,6 +11,7 @@ const NavMenu: React.FC = () => {
         {NavMenuLogged.map((options) => {
           return (
             <NavMenuItem
+              key={options.description}
               linkPath={options.path}
               description={options.description}
               iconName={options.icon}
@@ -36,13 +34,13 @@ const NavMenu: React.FC = () => {
         {NavMenuNotLogged.map((options) => {
           return (
             <NavMenuItem
+              key={options.description}
               linkPath={options.path}
               description={options.description}
               iconName={options.icon}
             />
           );
         })}
-        {cart.length > 0 ? <p className="cartCount">{cart.length}</p> : null}
       </div>
     );
   }

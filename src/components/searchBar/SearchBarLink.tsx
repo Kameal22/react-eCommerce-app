@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 interface searchBarProps {
   name: string;
   iconClass: string;
+  key: string;
   dropdowns: { name: string; category: string; idx: string | number }[];
 }
 
@@ -25,7 +26,7 @@ const SearchBarLink: React.FC<searchBarProps> = (props) => {
         <div className={"dropdownDiv"}>
           {props.dropdowns.map((dropdown) => {
             return (
-              <p className="dropdownItem">
+              <p className="dropdownItem" key={props.name}>
                 <Link
                   className="dropdownItemLink"
                   to={`/searchResult/${props.name}/${dropdown.category}/${dropdown.idx}`}

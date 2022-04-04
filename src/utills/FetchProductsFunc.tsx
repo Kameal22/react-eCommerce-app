@@ -16,6 +16,24 @@ export const fetchEverything = async (setProducts: React.Dispatch<React.SetState
   setProducts(products)
 }
 
+export const fetchRecommendedProducts = async (setProducts: React.Dispatch<React.SetStateAction<any[]>>) => {
+  const response = await axios.get("http://localhost:3000/everything");
+
+  const products: SetStateAction<any[]> = []
+
+  response.data.forEach((product: any) => {
+    product.forEach((prod: any) => {
+      products.push(prod)
+    })
+  })
+
+  const recProducts = products.sort(() => 0.5 - Math.random());
+
+  const selected = recProducts.slice(0, 5)
+
+  setProducts(selected)
+}
+
 export const fetchAndSetProductsFunc = async (
   productType: string | undefined,
   setProducts: React.Dispatch<React.SetStateAction<Product[]>>

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/recommendationStyles/recProducts.scss";
 import RecProduct from "./RecProduct";
-import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
+import { fetchRecommendedProducts } from "../../utills/FetchProductsFunc";
 import { Product } from "../../interfaces/ProductInterface";
 
 const RecProducts: React.FC = () => {
   const [recProducts, setRecProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetchAndSetProductsFunc("consoles", setRecProducts)
+    fetchRecommendedProducts(setRecProducts)
   }, []);
 
   return (

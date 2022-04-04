@@ -5,6 +5,7 @@ interface MenuItemProps {
   linkPath: string;
   description: string;
   iconName: string;
+  key: string;
 }
 
 const NavMenuItem: React.FC<MenuItemProps> = (props) => {

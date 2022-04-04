@@ -61,7 +61,7 @@ const SearchResult: React.FC = () => {
                     <div className="searchResult">
                         {products.map(product => {
                             return (<div className="searchProduct">
-                                <img className="searchResultImg" src={product.img}></img>
+                                <img className="searchResultImg" src={product.img} alt="img"></img>
                                 <Link className="productLink" to={`/specificResult/${product.category}/${product._id}`}><h5>{product.name}</h5></Link>
                                 {product.processor ? <p>Processor: {product.processor}</p> : null}
                                 {product.cores ? <p>Cores: {product.cores} cores</p> : null}

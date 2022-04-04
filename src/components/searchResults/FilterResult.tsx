@@ -20,6 +20,7 @@ const FilterResult: React.FC<ResultProps> = props => {
     const [viewedProducts, setViewedProducts] = useState<Product[]>([])
     const [UniqueKeyValues, setUniqueKeyValus] = useState<string[]>([])
     const [UniquePairsValues, setUniquePairsValues] = useState<UniquePairsInterface[]>([])
+    const [sortingError, setSortingError] = useState<string>('');
 
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
@@ -54,7 +55,14 @@ const FilterResult: React.FC<ResultProps> = props => {
             const inputMinPrice = parseInt(values.priceMin)
             const inputMaxPrice = parseInt(values.priceMax)
 
-            props.filterPriceResult('price', inputMinPrice, inputMaxPrice)
+            if (inputMinPrice > inputMaxPrice) {
+                setSortingError("Minimal price cannot be bigger than the maximum one");
+            } else if (inputMinPrice < 0 || inputMaxPrice < 0) {
+                setSortingError("Cannot sort based on negative values");
+            } else {
+                props.filterPriceResult('price', inputMinPrice, inputMaxPrice)
+                setSortingError('')
+            }
 
             formik.resetForm()
         },
@@ -88,6 +96,7 @@ const FilterResult: React.FC<ResultProps> = props => {
                         <input name="priceMax"
                             value={formik.values.priceMax}
                             onChange={formik.handleChange} placeholder="to"></input>
+                        {sortingError ? <p className="formError">{sortingError}</p> : null}
                         <button className="hiddenSubmit" type="submit">
                             Register
                         </button>

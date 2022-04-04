@@ -14,6 +14,7 @@ const AdvBanner: React.FC = () => {
         <a
           className="githubLink"
           target="_blank"
+          rel="noreferrer"
           href="https://github.com/Kameal22"
         >
           my Github

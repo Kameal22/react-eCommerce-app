@@ -3,6 +3,7 @@ import Footer from "../../footer/Footer";
 import NavLogo from "../../nav/NavLogo";
 import "../../../styles/profileStyles/profile.scss";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Profile: React.FC = () => {
   const [username, setUsername] = useState<string>('')
@@ -25,17 +26,17 @@ const Profile: React.FC = () => {
             <h4>{username}</h4>
           </div>
           <div className="profileOptions">
-            <div className="orders">
-              <i className="bi bi-clipboard"></i>
-              <h4>Orders</h4>
-            </div>
             <div className="wishes">
               <i className="bi bi-heart"></i>
-              <h4>Wishlist</h4>
+              <Link to="/wishlist" className="navLink">
+                <h4>Wishlist</h4>
+              </Link>
             </div>
             <div className="accSettings">
-              <i className="bi bi-gear"></i>
-              <h4>Account settings</h4>
+              <i className="bi bi-cart"></i>
+              <Link to="/cart" className="navLink">
+                <h4>Cart</h4>
+              </Link>
             </div>
           </div>
         </div>

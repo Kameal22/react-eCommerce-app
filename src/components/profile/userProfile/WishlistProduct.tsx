@@ -19,7 +19,7 @@ const WishlistProduct: React.FC<wishlistInterface> = (props) => {
       >
         <h5 className="wishlistProductName">{props.name}</h5>
       </Link>
-      <img className="searchResultImg" src={props.img}></img>
+      <img className="searchResultImg" src={props.img} alt="img"></img>
       <h5 className="wishlistPrice">{props.price} $</h5>
     </div>
   );

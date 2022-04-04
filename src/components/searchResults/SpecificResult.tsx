@@ -47,6 +47,9 @@ const SpecificResult: React.FC = () => {
             return [...cart, { id: id, name: name, img: img, price: price }]
         })
         setPopUpMsg('Added to cart')
+        setTimeout(() => {
+            setPopUpMsg('')
+        }, 1500)
     }
 
     const handleSetLastWatched = (name: string, img: string, price: number, category: string, id: string) => {
@@ -71,8 +74,14 @@ const SpecificResult: React.FC = () => {
                 return [...product, { name: name, img: img, price: price, category: category, id: id }]
             }))
             setPopUpMsg('Added to wishlist')
+            setTimeout(() => {
+                setPopUpMsg('')
+            }, 1500)
         } else {
             setPopUpMsg('You alredy think about this one')
+            setTimeout(() => {
+                setPopUpMsg('')
+            }, 1500)
         }
     }
 
@@ -105,12 +114,12 @@ const SpecificResult: React.FC = () => {
                         {isProductInCartOrWishlist(cart, product) ? <i id="cartIcon" style={{ fontSize: "2em", color: "red" }} className="bi bi-cart-check"></i> : null}
                         <div className="imgDiv">
                             <i onClick={changeImg} id="leftArrow" className="bi bi-arrow-left-circle" style={{ fontSize: "1.4em" }}></i>
-                            <img className="searchResultImg" src={currImg}></img>
+                            <img className="searchResultImg" src={currImg} alt="img"></img>
                             <i onClick={changeImg} id="rightArrow" className="bi bi-arrow-right-circle" style={{ fontSize: "1.4em" }}></i>
                         </div>
                         <div className="smallerImgsDiv">
-                            <img onClick={() => setCurrImg(product.img)} className={product.img === currImg ? 'smallerImgCHOSEN' : 'smallerImg'} src={product.img}></img>
-                            <img onClick={() => setCurrImg(product.scdImg)} className={product.scdImg === currImg ? 'smallerImgCHOSEN' : 'smallerImg'} src={product.scdImg}></img>
+                            <img onClick={() => setCurrImg(product.img)} alt="img" className={product.img === currImg ? 'smallerImgCHOSEN' : 'smallerImg'} src={product.img}></img>
+                            <img onClick={() => setCurrImg(product.scdImg)} alt="img" className={product.scdImg === currImg ? 'smallerImgCHOSEN' : 'smallerImg'} src={product.scdImg}></img>
                         </div>
                         {product.processor ? <p>Processor: {product.processor}</p> : null}
                         {product.cores ? <p>Cores: {product.cores} cores</p> : null}

@@ -1,6 +1,5 @@
 import React from "react";
 import "../../styles/cartStyles/cartSummary.scss";
-import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
 interface CartPriceProps {

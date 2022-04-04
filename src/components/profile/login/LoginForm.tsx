@@ -5,12 +5,8 @@ import * as Yup from "yup";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import axios from "axios";
-import { useState } from "react";
-
-//Create error on wrong username/password
 
 const LoginForm: React.FC = () => {
-  const [error, setError] = useState(false)
   const navigate = useNavigate();
 
   const formik = useFormik({

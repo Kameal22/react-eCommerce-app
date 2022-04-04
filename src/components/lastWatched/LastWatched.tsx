@@ -12,8 +12,6 @@ const LastWatched: React.FC = () => {
     setLastWatched(lasties);
   }, [lasties]);
 
-  console.log(lasties.length)
-
   if (lasties.length > 0) {
     return (
       <div>
