@@ -26,7 +26,7 @@ const SearchBarLink: React.FC<searchBarProps> = (props) => {
         <div className={"dropdownDiv"}>
           {props.dropdowns.map((dropdown) => {
             return (
-              <p className="dropdownItem" key={props.name}>
+              <p className="dropdownItem" key={dropdown.idx}>
                 <Link
                   className="dropdownItemLink"
                   to={`/searchResult/${props.name}/${dropdown.category}/${dropdown.idx}`}

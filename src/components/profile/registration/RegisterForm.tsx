@@ -53,7 +53,7 @@ const RegisterForm: React.FC = () => {
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
         <div className="registerFormInputs">
           <TextField
-            id="standard-basic"
+            id="standard-basic1"
             label="Name"
             variant="standard"
             className="registerFormInput"
@@ -68,7 +68,7 @@ const RegisterForm: React.FC = () => {
             <p className="formError">{formik.errors.name}</p>
           ) : null}
           <TextField
-            id="standard-basic"
+            id="standard-basic2"
             label="Email"
             variant="standard"
             className="registerFormInput"
@@ -83,7 +83,7 @@ const RegisterForm: React.FC = () => {
             <p className="formError">{formik.errors.email}</p>
           ) : null}
           <TextField
-            id="standard-basic"
+            id="standard-basic3"
             label="Password"
             variant="standard"
             className="registerFormInput"

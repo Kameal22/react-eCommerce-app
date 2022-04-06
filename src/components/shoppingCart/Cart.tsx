@@ -9,11 +9,8 @@ import AditionalCartInfo from "./AditionalCartInfo";
 import { CartInterface } from "../../interfaces/CartInterface";
 import { CartContext } from "../../contexts/CartContext";
 import { summarizeCartValue, clearCart, deleteClickedCartItem } from "../../utills/CartUtils";
-import { useSetCart } from "../../contexts/CartContext";
 
 const Cart: React.FC = () => {
-  const setCart = useSetCart();
-
   const cart = useContext(CartContext);
   const [cartItem, setCartItem] = useState<CartInterface[]>();
   const [cartValue, setCartValue] = useState<number>(0);
@@ -26,11 +23,6 @@ const Cart: React.FC = () => {
     if (cartItem) {
       summarizeCartValue(cartItem, setCartValue)
     }
-  }, [cartItem])
-
-  useEffect(() => {
-    if (cartItem)
-      setCart(cartItem)
   }, [cartItem])
 
   if (!cartItem) {
@@ -67,7 +59,7 @@ const Cart: React.FC = () => {
             </div>
             {cartItem.map(item => {
               return (
-                <CartItem id={item.id} name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.id, setCartItem)} />
+                <CartItem key={item.id} id={item.id} name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.id, setCartItem)} />
               )
             })}
           </div>

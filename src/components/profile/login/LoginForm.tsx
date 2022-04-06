@@ -43,7 +43,7 @@ const LoginForm: React.FC = () => {
       <form autoComplete="off" onSubmit={formik.handleSubmit}>
         <div className="loginFormInputs">
           <TextField
-            id="standard-basic"
+            id="standard-basic1"
             label="Name"
             variant="standard"
             className="loginFormInput"
@@ -58,7 +58,7 @@ const LoginForm: React.FC = () => {
             <p className="formError">{formik.errors.name}</p>
           ) : null}
           <TextField
-            id="standard-basic"
+            id="standard-basic2"
             label="Password"
             variant="standard"
             className="loginFormInput"

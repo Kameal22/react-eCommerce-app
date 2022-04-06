@@ -30,6 +30,7 @@ const Wishlist: React.FC = () => {
               price={product.price}
               category={product.category}
               id={product.id}
+              key={product.id}
             />
           );
         })}

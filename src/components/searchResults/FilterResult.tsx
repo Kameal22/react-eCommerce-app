@@ -3,9 +3,10 @@ import "../../styles/searchResultStyles/searchResult.scss";
 import { Product } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
 import { useFormik } from "formik";
+import { v4 as uuid } from 'uuid';
 
 interface UniquePairsInterface {
-    name: string; values: (string | number | undefined)[][]
+    name: string, values: (string | number | undefined)[][]
 }
 
 interface ResultProps {
@@ -77,11 +78,11 @@ const FilterResult: React.FC<ResultProps> = props => {
             </div>
             <div className="productOptions">
                 {UniquePairsValues.map((values: any) => (
-                    <div className="test">
+                    <div key={uuid()} className="test">
                         <h4 className="producentHeading">{values.name}</h4>
                         {values.values[0].map((value: string | number) => {
                             return (
-                                <p onClick={() => props.filterAnythingButPriceResult(values.name, value)} className="brands">{value}</p>
+                                <p key={uuid()} onClick={() => props.filterAnythingButPriceResult(values.name, value)} className="brands">{value}</p>
                             )
                         })}
                     </div>
