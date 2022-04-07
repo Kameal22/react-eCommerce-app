@@ -8,11 +8,12 @@ import WishlistProduct from "./WishlistProduct";
 
 const Wishlist: React.FC = () => {
   const wishlistContext = useContext(WishlistContext);
+
   const [wishlist, setWishlist] = useState<WishlistAndLastWatchedInterface[]>([]);
 
   useEffect(() => {
     setWishlist(wishlistContext);
-  }, []);
+  }, [wishlistContext]);
 
   return (
     <div className="wishlist">

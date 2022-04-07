@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import { WishlistAndLastWatchedInterface } from "../interfaces/LastWatchedInterface";
 
 export const WishlistContext = createContext<WishlistAndLastWatchedInterface[]>([]);
@@ -18,6 +18,18 @@ export const useSetWishlist = () => {
 
 export const WishlistProvider: React.FC = ({ children }) => {
   const [wishlist, setWishlist] = useState<WishlistAndLastWatchedInterface[]>([]);
+
+  useEffect(() => {
+    const wish = window.localStorage.getItem('wish');
+
+    if (wish) {
+      setWishlist(JSON.parse(wish))
+    }
+  }, [])
+
+  useEffect(() => {
+    window.localStorage.setItem('wish', JSON.stringify(wishlist))
+  }, [wishlist])
 
   return (
     <WishlistContext.Provider value={wishlist}>

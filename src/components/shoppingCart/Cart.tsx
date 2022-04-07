@@ -12,6 +12,7 @@ import { summarizeCartValue, clearCart, deleteClickedCartItem } from "../../util
 
 const Cart: React.FC = () => {
   const cart = useContext(CartContext);
+
   const [cartItem, setCartItem] = useState<CartInterface[]>();
   const [cartValue, setCartValue] = useState<number>(0);
 
