@@ -1,4 +1,4 @@
-export interface Product {
+export interface ProductInterface {
     [val: string]: string | number | undefined,
     key: string,
     name: string,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../../styles/searchResultStyles/searchResult.scss";
-import { Product } from "../../interfaces/ProductInterface";
+import { ProductInterface } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFunc, fetchAndFilterProductsFunc } from "../../utills/FetchProductsFunc";
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
@@ -9,7 +9,7 @@ import FilterResult from "./FilterResult";
 
 const SearchResult: React.FC = () => {
     const { productType, productCategory, productCategoryIdx } = useParams();
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<ProductInterface[]>([]);
 
     useEffect(() => {
         if (!productCategory) {
@@ -39,7 +39,7 @@ const SearchResult: React.FC = () => {
         setProducts(filteredByPrice)
     }
 
-    const clearFilters = (clearedProducts: Product[]) => {
+    const clearFilters = (clearedProducts: ProductInterface[]) => {
         setProducts(clearedProducts)
     }
 

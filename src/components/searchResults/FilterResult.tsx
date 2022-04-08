@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/searchResultStyles/searchResult.scss";
-import { Product } from "../../interfaces/ProductInterface";
+import { ProductInterface } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFunc } from "../../utills/FetchProductsFunc";
 import { useFormik } from "formik";
 import { v4 as uuid } from 'uuid';
@@ -12,13 +12,13 @@ interface UniquePairsInterface {
 interface ResultProps {
     filterAnythingButPriceResult: (category: string, chosenOption: string | number) => void,
     filterPriceResult: (category: string, priceMin?: number, priceMax?: number) => void,
-    clearFunc: (products: Product[]) => void,
-    products: Product[]
+    clearFunc: (products: ProductInterface[]) => void,
+    products: ProductInterface[]
     productType: string | undefined,
 }
 
 const FilterResult: React.FC<ResultProps> = props => {
-    const [viewedProducts, setViewedProducts] = useState<Product[]>([])
+    const [viewedProducts, setViewedProducts] = useState<ProductInterface[]>([])
     const [UniqueKeyValues, setUniqueKeyValus] = useState<string[]>([])
     const [UniquePairsValues, setUniquePairsValues] = useState<UniquePairsInterface[]>([])
     const [sortingError, setSortingError] = useState<string>('');

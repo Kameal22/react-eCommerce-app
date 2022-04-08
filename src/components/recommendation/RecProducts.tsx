@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import "../../styles/recommendationStyles/recProducts.scss";
 import RecProduct from "./RecProduct";
 import { fetchRecommendedProducts } from "../../utills/FetchProductsFunc";
-import { Product } from "../../interfaces/ProductInterface";
+import { ProductInterface } from "../../interfaces/ProductInterface";
 
 const RecProducts: React.FC = () => {
-  const [recProducts, setRecProducts] = useState<Product[]>([]);
+  const [recProducts, setRecProducts] = useState<ProductInterface[]>([]);
 
   useEffect(() => {
     fetchRecommendedProducts(setRecProducts)

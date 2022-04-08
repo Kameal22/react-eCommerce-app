@@ -1,6 +1,6 @@
 import axios from "axios";
 import { SetStateAction } from "react";
-import { Product } from "../interfaces/ProductInterface";
+import { ProductInterface } from "../interfaces/ProductInterface";
 
 export const fetchEverything = async (setProducts: React.Dispatch<React.SetStateAction<any[]>>) => {
   const response = await axios.get("http://localhost:3000/everything");
@@ -36,7 +36,7 @@ export const fetchRecommendedProducts = async (setProducts: React.Dispatch<React
 
 export const fetchAndSetProductsFunc = async (
   productType: string | undefined,
-  setProducts: React.Dispatch<React.SetStateAction<Product[]>>
+  setProducts: React.Dispatch<React.SetStateAction<ProductInterface[]>>
 ) => {
   const response = await axios.get(`http://localhost:3000/${productType}`);
 
@@ -47,7 +47,7 @@ export const fetchAndFilterProductsFunc = async (
   productType: string | undefined,
   productCategory: string | number,
   productCategoryIdx: string | number | undefined,
-  setProducts: React.Dispatch<React.SetStateAction<Product[]>>
+  setProducts: React.Dispatch<React.SetStateAction<ProductInterface[]>>
 ) => {
   const response = await axios.get(`http://localhost:3000/${productType}`);
 
@@ -61,7 +61,7 @@ export const fetchAndFilterProductsFunc = async (
 export const fetchAndSetProductsFuncWithParams = async (
   productType: string | undefined,
   productId: string | undefined,
-  setProduct: React.Dispatch<React.SetStateAction<Product | undefined>>
+  setProduct: React.Dispatch<React.SetStateAction<ProductInterface | undefined>>
 ) => {
   const response = await axios.get(
     `http://localhost:3000/${productType}/${productId}`

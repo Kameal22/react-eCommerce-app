@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { LatelyWatchedContext, useSetLW } from "../../contexts/LatelyWatchedContext";
 import { useParams } from "react-router-dom";
 import "../../styles/searchResultStyles/specificResult.scss";
-import { Product } from "../../interfaces/ProductInterface";
+import { ProductInterface } from "../../interfaces/ProductInterface";
 import { fetchAndSetProductsFuncWithParams } from "../../utills/FetchProductsFunc";
 import NavLogo from "../nav/NavLogo";
 import Footer from "../footer/Footer";
@@ -11,6 +11,7 @@ import { v4 as uuid } from 'uuid'
 import { useSetWishlist, WishlistContext } from "../../contexts/WishListContext";
 import Popup from "../../utills/Popup";
 import { isProductInCartOrWishlist } from "../../utills/ProductAppeareance";
+import { handleSetLastWatched } from "../../utills/HandleSetProducts";
 
 const SpecificResult: React.FC = () => {
     const setCart = useSetCart();
@@ -21,7 +22,7 @@ const SpecificResult: React.FC = () => {
     const cart = useContext(CartContext)
 
     const { productType, productId } = useParams();
-    const [product, setProduct] = useState<Product>();
+    const [product, setProduct] = useState<ProductInterface>();
     const [currImg, setCurrImg] = useState<string>();
     const [popUpMsg, setPopUpMsg] = useState<string>();
 
@@ -30,12 +31,8 @@ const SpecificResult: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        if (product && lasties.length <= 4) {
-            handleSetLastWatched(product.name, product.img, product.price, product.category, product._id)
-        } else if (product && lasties.length > 4) {
-            lasties.pop()
-            handleSetFullfilledLastWatched(product.name, product.img, product.price, product.category, product._id)
-        }
+        if (product)
+            handleSetLastWatched(lasties, product, setLastWatched, product.name, product.img, product.price, product?.category, product?._id)
     }, [product])
 
     useEffect(() => {
@@ -50,22 +47,6 @@ const SpecificResult: React.FC = () => {
         setTimeout(() => {
             setPopUpMsg('')
         }, 1500)
-    }
-
-    const handleSetLastWatched = (name: string, img: string, price: number, category: string, id: string) => {
-        if (!lasties.some((products) => products.name === name)) {
-            setLastWatched((lw => {
-                return [...lw, { name: name, img: img, price: price, category: category, id: id }]
-            }))
-        }
-    }
-
-    const handleSetFullfilledLastWatched = (name: string, img: string, price: number, category: string, id: string) => {
-        if (!lasties.some((products) => products.name === name)) {
-            setLastWatched((lw => {
-                return [{ name: name, img: img, price: price, category: category, id: id }, ...lw]
-            }))
-        }
     }
 
     const handleSetWishlist = (name: string, img: string, price: number, category: string, id: string) => {
