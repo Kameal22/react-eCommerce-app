@@ -2,6 +2,6 @@ import { WishlistAndLastWatchedInterface } from "../interfaces/LastWatchedInterf
 import { CartInterface } from "../interfaces/CartInterface";
 import { ProductInterface } from "../interfaces/ProductInterface";
 
-export const isProductInCartOrWishlist = (place: WishlistAndLastWatchedInterface[] | CartInterface[], product: ProductInterface | undefined) => {
-    return (place.find(place => place.name === product?.name))
+export const isProductInCartOrWishlist = (place: Array<WishlistAndLastWatchedInterface | CartInterface>, product: ProductInterface | undefined) => {
+    return (place.find((productInPlace: { name: string | undefined; }) => productInPlace.name === product?.name))
 }

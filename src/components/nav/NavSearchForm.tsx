@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../styles/navStyles/navSearchForm.scss";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
+import { v4 as uuid } from 'uuid';
 import { fetchEverything } from "../../utills/FetchProductsFunc";
 
 const NavSearchForm: React.FC = () => {
@@ -53,7 +54,7 @@ const NavSearchForm: React.FC = () => {
       {searching ? <div className="searchHints">
         {filteredData.map((data: any) => {
           return (
-            <Link className="productLink" to={`/specificResult/${data.category}/${data._id}`}>
+            <Link key={uuid()} className="productLink" to={`/specificResult/${data.category}/${data._id}`}>
               <p className="recProductName">{data.name}</p>
             </Link>
           )

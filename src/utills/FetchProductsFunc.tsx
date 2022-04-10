@@ -75,14 +75,3 @@ export const fetchProducts = async (productType: string | undefined) => {
 
   return response.data;
 };
-
-export const fetchSpecificProduct = async (
-  productType: string | undefined,
-  productId: string | undefined
-) => {
-  const response = await axios.get(
-    `http://localhost:3000/${productType}/${productId}`
-  );
-
-  console.log(response.data);
-};

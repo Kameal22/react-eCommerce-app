@@ -60,7 +60,7 @@ const Cart: React.FC = () => {
             </div>
             {cartItem.map(item => {
               return (
-                <CartItem key={item.id} id={item.id} name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.id, setCartItem)} />
+                <CartItem key={item.id} qty={item.qty} id={item.id} name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.qty, item.id, setCartItem)} />
               )
             })}
           </div>

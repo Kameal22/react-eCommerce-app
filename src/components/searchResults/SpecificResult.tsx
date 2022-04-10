@@ -11,7 +11,7 @@ import { v4 as uuid } from 'uuid'
 import { useSetWishlist, WishlistContext } from "../../contexts/WishListContext";
 import Popup from "../../utills/Popup";
 import { isProductInCartOrWishlist } from "../../utills/ProductAppeareance";
-import { handleSetLastWatched } from "../../utills/HandleSetProducts";
+import { handleSetLastWatched } from "../../utills/HandleSetLastWatched";
 
 const SpecificResult: React.FC = () => {
     const setCart = useSetCart();
@@ -40,9 +40,16 @@ const SpecificResult: React.FC = () => {
     }, [product])
 
     const handleSetCart = (id: string, name: string, img: string, price: number) => {
-        setCart((cart) => {
-            return [...cart, { id: id, name: name, img: img, price: price }]
-        })
+        const productExist = cart.find(cartItem => cartItem.name === product?.name)
+
+        if (!productExist) {
+            setCart((cart) => {
+                return [...cart, { id: id, name: name, img: img, price: price, qty: 1 }]
+            })
+        } else {
+            productExist.qty++
+        }
+
         setPopUpMsg('Added to cart')
         setTimeout(() => {
             setPopUpMsg('')
