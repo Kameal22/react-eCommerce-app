@@ -2,6 +2,8 @@
 
 ## This app mainly focuses on developing frontend, backend is very straightforward. Just wanted it to work so I can build more intresting project.
 
+## In order to use it, You need to download and install backend files from the other repository and set up MongoDB
+
 ## Packages used in project
 
 1. Axios,
