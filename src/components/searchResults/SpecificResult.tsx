@@ -48,6 +48,7 @@ const SpecificResult: React.FC = () => {
             })
         } else {
             productExist.qty++
+            // Set state here, and also increase cart value.
         }
 
         setPopUpMsg('Added to cart')
