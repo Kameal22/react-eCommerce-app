@@ -42,14 +42,9 @@ const SpecificResult: React.FC = () => {
     const handleSetCart = (id: string, name: string, img: string, price: number) => {
         const productExist = cart.find(cartItem => cartItem.name === product?.name)
 
-        if (!productExist) {
-            setCart((cart) => {
-                return [...cart, { id: id, name: name, img: img, price: price, qty: 1 }]
-            })
-        } else {
-            productExist.qty++
-            // Set state here, and also increase cart value.
-        }
+        setCart((cart) => {
+            return [...cart, productExist ? productExist.qty++ : { id: id, name: name, img: img, price: price, qty: 1 }]
+        })
 
         setPopUpMsg('Added to cart')
         setTimeout(() => {

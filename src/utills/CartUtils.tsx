@@ -14,18 +14,14 @@ export const clearCart = (setCart: React.Dispatch<React.SetStateAction<CartInter
 }
 
 export const deleteClickedCartItem = (cart: CartInterface[], qty: number, id: string, setNewCart: React.Dispatch<React.SetStateAction<CartInterface[] | undefined>>) => {
-    if (qty === 1) {
-        const cartAfterRemove = cart?.filter(product => product.id !== id)
 
-        window.localStorage.setItem('cart', JSON.stringify(cartAfterRemove))
+    // //Almost, but I need to find specific product because now it deletes every product that has more than 1 qty
+    // const productToDelete = cart?.find(product => product.id === id);
 
-        setNewCart(cartAfterRemove)
-    } else {
-        const cartAfterRemove = cart?.filter(product => product.qty--)
+    const cartAfterRemove = cart?.filter(product => product.id !== id)
 
-        window.localStorage.setItem('cart', JSON.stringify(cartAfterRemove))
+    window.localStorage.setItem('cart', JSON.stringify(cartAfterRemove))
 
-        setNewCart(cartAfterRemove)
-    }
+    setNewCart(cartAfterRemove)
     window.location.reload();
 }
