@@ -8,7 +8,7 @@ import CartSummary from "./CartSummary";
 import AditionalCartInfo from "./AditionalCartInfo";
 import { CartInterface } from "../../interfaces/CartInterface";
 import { CartContext } from "../../contexts/CartContext";
-import { summarizeCartValue, clearCart, deleteClickedCartItem } from "../../utills/CartUtils";
+import { summarizeCartValue, clearCart, deleteClickedCartItem, summarizeCartItems } from "../../utills/CartUtils";
 
 const Cart: React.FC = () => {
   const cart = useContext(CartContext);
@@ -50,17 +50,17 @@ const Cart: React.FC = () => {
         <div className="cartAndSummaryDiv">
           <div className="usersCartDiv">
             <div className="cartNav">
-              <h3 className="yourCartHeading">
-                Your cart: ({cartItem.length} items)
-              </h3>
-              <div className="clearCartDiv">
+              {cart.length > 0 ? <h3 className="yourCartHeading">
+                Your cart: {summarizeCartItems(cart)}
+              </h3> : <h3>Cart is empty</h3>}
+              {cart.length > 0 ? <div className="clearCartDiv">
                 <i onClick={() => clearCart(setCartItem)} className="bi bi-trash"></i>
                 <h4 onClick={() => clearCart(setCartItem)} className="clearCartHeading">Clear cart</h4>
-              </div>
+              </div> : null}
             </div>
             {cartItem.map(item => {
               return (
-                <CartItem key={item.id} qty={item.qty} id={item.id} name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.qty, item.id, setCartItem)} />
+                <CartItem key={item.id} qty={item.qty} id={item.id} name={item.name} img={item.img} price={item.price} deleteItem={() => deleteClickedCartItem(cartItem, item.id, setCartItem)} />
               )
             })}
           </div>
