@@ -72,8 +72,8 @@ const FilterResult: React.FC<ResultProps> = props => {
     return (
         <div className="filters">
             <h2 className="filterHeading">Filter products</h2>
-            <div className="clearFilters">
-                <p onClick={() => props.clearFunc(viewedProducts)}>Clear filters</p>
+            <div onClick={() => props.clearFunc(viewedProducts)} className="clearFilters">
+                <p>Clear filters</p>
                 <i className="bi bi-arrow-counterclockwise"></i>
             </div>
             <div className="productOptions">
