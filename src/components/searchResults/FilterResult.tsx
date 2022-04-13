@@ -23,8 +23,6 @@ const FilterResult: React.FC<ResultProps> = props => {
     const [UniquePairsValues, setUniquePairsValues] = useState<UniquePairsInterface[]>([])
     const [sortingError, setSortingError] = useState<string>('');
 
-    console.log(props.products)
-
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
     }, []);

@@ -24,6 +24,9 @@
   .footerDiv h2 {
     font-size: 1em;
   }
+}
+
+@media screen and (max-width: 600px) {
   .footerDiv {
     width: 80%;
     @include marginCenter();
@@ -31,6 +34,5 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 2vh;
   }
 }

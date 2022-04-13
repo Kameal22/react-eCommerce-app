@@ -5,4 +5,51 @@
   align-items: center;
   justify-content: space-between;
   width: 20%;
+} 
+
+@media screen and (max-width: 1080px) {
+  .lastWatchedProduct{
+    min-width: 35%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .lastWatchedProduct{
+    min-width: 50%;
+  }
+  
+  .recProductName{
+    font-size: .7em;
+  }
+
+  .recProductBrand{
+    font-size: .7em;
+  }
+
+  .recProductPrice{
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .lastWatchedProduct{
+    min-width: 100%;
+  }
+
+  .recProductName{
+    font-size: .7em;
+  }
+
+  .recProductBrand{
+    font-size: .7em;
+  }
+
+  .recProductPrice{
+    font-size: .8em;
+  }
+
+  .recProductImg {
+    width: 35%;
+    height: 35%;
+  }
 }

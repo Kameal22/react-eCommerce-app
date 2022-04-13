@@ -19,3 +19,50 @@
 .recProductPrice {
   font-size: 1em;
 }
+
+@media screen and (max-width: 1080px) {
+  .recProduct{
+    min-width: 35%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .recProduct{
+    min-width: 50%;
+  }
+  
+  .recProductName{
+    font-size: .7em;
+  }
+
+  .recProductBrand{
+    font-size: .7em;
+  }
+
+  .recProductPrice{
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .recProduct{
+    min-width: 100%;
+  }
+
+  .recProductName{
+    font-size: .7em;
+  }
+
+  .recProductBrand{
+    font-size: .7em;
+  }
+
+  .recProductPrice{
+    font-size: .8em;
+  }
+
+  .recProductImg {
+    width: 35%;
+    height: 35%;
+  }
+}

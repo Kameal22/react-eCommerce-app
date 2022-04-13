@@ -6,3 +6,10 @@
   width: 80%;
   border-bottom: 1px solid grey;
 }
+
+
+@media screen and (max-width: 1080px) {
+  .recProducts{
+    overflow-x: scroll;
+  }
+}

@@ -70,3 +70,21 @@
     align-items: center;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .contactPhone {
+    width: 100%;
+  }
+
+  .contactEmail{
+    width: 100%;
+  }
+
+  .contactIcons{
+    width: 100%;
+  }
+
+  .contactGeo{
+    width: 100%;
+  }
+}
