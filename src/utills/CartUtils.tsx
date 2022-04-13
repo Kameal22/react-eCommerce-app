@@ -1,9 +1,16 @@
 import { CartInterface } from "../interfaces/CartInterface";
 
 export const summarizeCartValue = (cartValue: CartInterface[], setValue: React.Dispatch<React.SetStateAction<number>>) => {
-    const value = cartValue?.map(item => item.price);
+    let finalValue = 0;
 
-    setValue(value.reduce((prev, next) => prev + next, 0));
+    cartValue.forEach(value => {
+        if (value.qty > 1) {
+            finalValue += value.price * value.qty
+        } else {
+            finalValue += value.price
+        }
+    })
+    setValue(finalValue)
 }
 
 export const clearCart = (setCart: React.Dispatch<React.SetStateAction<CartInterface[] | undefined>>) => {

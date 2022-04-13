@@ -27,7 +27,7 @@ export const fetchRecommendedProducts = async (setProducts: React.Dispatch<React
     })
   })
 
-  const recProducts = products.sort(() => 0.5 - Math.random());
+  const recProducts = Array.from(new Set(products.sort(() => 0.5 - Math.random())))
 
   const selected = recProducts.slice(0, 5)
 
@@ -68,10 +68,4 @@ export const fetchAndSetProductsFuncWithParams = async (
   );
 
   setProduct(response.data);
-};
-
-export const fetchProducts = async (productType: string | undefined) => {
-  const response = await axios.get(`http://localhost:3000/${productType}`);
-
-  return response.data;
 };
