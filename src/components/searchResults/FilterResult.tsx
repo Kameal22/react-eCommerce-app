@@ -23,6 +23,8 @@ const FilterResult: React.FC<ResultProps> = props => {
     const [UniquePairsValues, setUniquePairsValues] = useState<UniquePairsInterface[]>([])
     const [sortingError, setSortingError] = useState<string>('');
 
+    console.log(props.products)
+
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
     }, []);
@@ -91,7 +93,7 @@ const FilterResult: React.FC<ResultProps> = props => {
             <div className="price">
                 <h4 className="producentHeading">Price</h4>
                 <div className="priceInputs">
-                    <form onSubmit={formik.handleSubmit}>
+                    {props.products.length > 1 ? <form onSubmit={formik.handleSubmit}>
                         <input name="priceMin" value={formik.values.priceMin}
                             onChange={formik.handleChange} placeholder="from"></input>
                         <input name="priceMax"
@@ -101,7 +103,8 @@ const FilterResult: React.FC<ResultProps> = props => {
                         <button className="hiddenSubmit" type="submit">
                             Register
                         </button>
-                    </form>
+                    </form> : null}
+
                 </div>
             </div>
         </div>
