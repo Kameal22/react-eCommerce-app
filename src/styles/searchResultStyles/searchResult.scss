@@ -26,13 +26,16 @@
   justify-content: space-between;
   @include marginCenter();
   width: 80%;
-  input {
-    width: 40%;
-    padding: 5px 5px;
-    border-radius: 10px;
-    border-color: rgb(226, 226, 226);
-  }
   margin-bottom: 2vh;
+}
+
+.priceInputs input {
+  width: 40%;
+  padding: 5px 5px;
+  border-radius: 10px;
+  border-color: rgb(226, 226, 226);
+  margin-left: 1em;
+  margin-top: 1vh;
 }
 
 .clearFilters {
@@ -110,4 +113,169 @@
 
 .singleOption {
   border: 1px solid blue;
+}
+
+@media screen and (max-width: 1050px){
+
+  .searchResultDiv {
+    width: 85%;
+    @include marginCenter();
+    margin-top: 6vh;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .filters{
+    width: 25%;
+  }
+
+  .filters h2{
+    font-size: 1.2em;
+  }
+
+  .filters p{
+    font-size: .9em;
+  }
+
+  .searchResult{
+    margin-left: 1em;
+  }
+
+  .priceInputs input {
+    width: 50%;
+    padding: 5px 5px;
+    border-radius: 10px;
+    border-color: rgb(226, 226, 226);
+    margin-left: 1em;
+    margin-top: 1vh;
+  }
+}
+
+@media screen and (max-width: 900px){
+
+  .searchResultDiv {
+    width: 90%;
+    @include marginCenter();
+    margin-top: 6vh;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .searchResult{
+    margin-left: 1em;
+  }
+
+  .filters{
+    width: 25%;
+  }
+
+  .filters h2{
+    font-size: 1.2em;
+  }
+
+  .filters p{
+    font-size: .9em;
+  }
+
+  .searchResult h5{
+    font-size: .8em;
+  }
+
+  .searchResult p {
+    font-size: .7em;
+  }
+
+  .searchProduct{
+    width: 30%;
+  }
+
+  .priceInputs input {
+    width: 60%;
+    padding: 5px 5px;
+    border-radius: 10px;
+    border-color: rgb(226, 226, 226);
+    margin-left: 1em;
+    margin-top: 1vh;
+  }
+}
+
+@media screen and (max-width: 750px){
+
+  .searchResultDiv {
+    width: 90%;
+    @include marginCenter();
+    margin-top: 6vh;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .searchResult{
+    margin-left: 1em;
+    width: 100%;
+  }
+
+  .filters{
+    display: none;
+  }
+
+  .filters h2{
+    font-size: 1.2em;
+  }
+
+  .filters p{
+    font-size: .9em;
+  }
+
+  .searchResult h5{
+    font-size: .8em;
+  }
+
+  .searchResult p {
+    font-size: .7em;
+  }
+
+  .searchProduct{
+    width: 50%;
+  }
+  
+}
+
+@media screen and (max-width: 600px){
+
+  .searchResultDiv {
+    width: 90%;
+    @include marginCenter();
+    margin-top: 6vh;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .searchResult{
+    margin-left: 1em;
+    width: 100%;
+  }
+
+  .filters{
+    display: none;
+  }
+
+  .filters h2{
+    font-size: 1em;
+  }
+
+  .filters p{
+    font-size: .8em;
+  }
+
+  .searchResult h5{
+    font-size: .8em;
+  }
+
+  .searchResult p {
+    font-size: .7em;
+  }
+
+  .searchProduct{
+    width: 50%;
+  }
 }
