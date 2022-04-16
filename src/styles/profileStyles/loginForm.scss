@@ -34,3 +34,47 @@
   color: red;
   font-size: 0.8em;
 }
+
+@media screen and (max-width: 1200px) {
+  .loginFormDiv {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .loginFormDiv {
+    width: 40%;
+  }
+
+  .loginHeading {
+    font-size: 1.6em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .loginFormDiv {
+    width: 50%;
+  }
+
+  .loginHeading {
+    font-size: 1.4em;
+  }
+
+  .loginHeadingFormInputs label {
+    font-size: .8em;
+  }
+
+  .loginBtn {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .loginFormDiv {
+    width: 70%;
+  }
+
+  .loginHeadingHeading {
+    font-size: 1.2em;
+  }
+}

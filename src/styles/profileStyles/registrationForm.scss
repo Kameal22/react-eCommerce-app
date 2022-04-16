@@ -63,3 +63,47 @@
   color: black;
   font-weight: bold;
 }
+
+@media screen and (max-width: 1200px) {
+  .registerFormDiv {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .registerFormDiv {
+    width: 50%;
+  }
+
+  .registerHeading {
+    font-size: 1.6em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .registerFormDiv {
+    width: 60%;
+  }
+
+  .registerHeading {
+    font-size: 1.4em;
+  }
+
+  .registerFormInputs label {
+    font-size: .8em;
+  }
+
+  .registerBtn {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .registerFormDiv {
+    width: 70%;
+  }
+
+  .registerHeading {
+    font-size: 1.2em;
+  }
+}

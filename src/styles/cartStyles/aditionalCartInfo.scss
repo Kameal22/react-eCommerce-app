@@ -43,3 +43,25 @@
 .technicalSupport i {
   margin-right: 1em;
 }
+
+@media screen and (max-width: 999px) {
+  .aditionalCartInfoDiv {
+    font-size: .9em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .aditionalCartInfoDiv {
+    font-size: .8em;
+    width: 90%;
+    margin-top: 8vh;
+  }
+}
+
+@media screen and (max-width: 6500px) {
+  .aditionalCartInfoDiv {
+    font-size: .7em;
+    width: 99%;
+    margin-top: 6vh;
+  }
+}

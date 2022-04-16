@@ -42,3 +42,29 @@
   display: flex;
   align-items: center;
 }
+
+@media screen and (max-width: 900px) {
+  .profileInfo{
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .profileInfo{
+    width: 35%;
+  }
+
+  .profileDiv{
+    margin-top: 4vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profileInfo{
+    width: 60%;
+  }
+
+  .profileDiv{
+    margin-top: 4vh;
+  }
+}

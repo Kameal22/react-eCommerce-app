@@ -22,3 +22,35 @@
   cursor: pointer;
   text-transform: uppercase;
 }
+
+@media screen and (max-width: 1200px) {
+  .shoppingCartSummaryDiv {
+    width: 35%;
+    font-size: .9em;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .shoppingCartSummaryDiv{
+    font-size: .8em;
+  }
+}
+
+
+@media screen and (max-width: 850px) {
+  .shoppingCartSummaryDiv{
+    margin-top: 4vh;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .shoppingCartSummaryDiv{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .shoppingCartSummaryDiv{
+    width: 70%;
+  }
+}
