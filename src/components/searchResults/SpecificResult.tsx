@@ -126,7 +126,7 @@ const SpecificResult: React.FC = () => {
                         {product.energyClass ? <p>Energy class: {product.energyClass}</p> : null}
                         {product.type ? <p>Type: {product.type}</p> : null}
                         {product.color ? <p>Color: {product.color}</p> : null}
-                        <h2>{product.price} $</h2>
+                        <h2 className="specificProductPrice">{product.price} $</h2>
 
                         <div className="productButtons">
                             <button onClick={() => handleSetCart(uuid(), product.name, product.img, product.price)}>Add to cart</button>
