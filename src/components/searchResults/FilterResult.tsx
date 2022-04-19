@@ -15,6 +15,7 @@ interface ResultProps {
     clearFunc: (products: ProductInterface[]) => void,
     products: ProductInterface[]
     productType: string | undefined,
+    showingFilters: boolean,
 }
 
 const FilterResult: React.FC<ResultProps> = props => {
@@ -22,6 +23,7 @@ const FilterResult: React.FC<ResultProps> = props => {
     const [UniqueKeyValues, setUniqueKeyValus] = useState<string[]>([])
     const [UniquePairsValues, setUniquePairsValues] = useState<UniquePairsInterface[]>([])
     const [sortingError, setSortingError] = useState<string>('');
+    const [filtersClassName, setFiltersClassName] = useState<string>('filters');
 
     useEffect(() => {
         fetchAndSetProductsFunc(props.productType, setViewedProducts)
@@ -56,10 +58,14 @@ const FilterResult: React.FC<ResultProps> = props => {
             const inputMinPrice = parseInt(values.priceMin)
             const inputMaxPrice = parseInt(values.priceMax)
 
+            const mostExpensiveItem = Math.max(...props.products.map(o => o.price), 0)
+
             if (inputMinPrice > inputMaxPrice) {
                 setSortingError("Minimal price cannot be bigger than the maximum one");
             } else if (inputMinPrice < 0 || inputMaxPrice < 0) {
                 setSortingError("Cannot sort based on negative values");
+            } else if (inputMinPrice > mostExpensiveItem) {
+                setSortingError("Nothing matches provided criteria")
             } else {
                 props.filterPriceResult('price', inputMinPrice, inputMaxPrice)
                 setSortingError('')
@@ -70,7 +76,7 @@ const FilterResult: React.FC<ResultProps> = props => {
     });
 
     return (
-        <div className="filters">
+        <div className={props.showingFilters ? 'filtersMobile' : 'filters'}>
             <h2 className="filterHeading">Filter products</h2>
             <div onClick={() => props.clearFunc(viewedProducts)} className="clearFilters">
                 <p>Clear filters</p>

@@ -10,6 +10,7 @@ import FilterResult from "./FilterResult";
 const SearchResult: React.FC = () => {
     const { productType, productCategory, productCategoryIdx } = useParams();
     const [products, setProducts] = useState<ProductInterface[]>([]);
+    const [showingFilters, setShowingFilters] = useState<boolean>(false);
 
     useEffect(() => {
         if (!productCategory) {
@@ -57,7 +58,8 @@ const SearchResult: React.FC = () => {
                     <NavLogo />
                 </div>
                 <div className="searchResultDiv">
-                    <FilterResult filterAnythingButPriceResult={filterByAnythingButPriceFunc} filterPriceResult={filterByPriceFunc} clearFunc={clearFilters} products={products} productType={productType} />
+                    <p onClick={() => setShowingFilters(!showingFilters)} className="showFilters">SHOW FILTERS</p>
+                    <FilterResult filterAnythingButPriceResult={filterByAnythingButPriceFunc} filterPriceResult={filterByPriceFunc} clearFunc={clearFilters} products={products} productType={productType} showingFilters={showingFilters} />
                     <div className="searchResult">
                         {products.map(product => {
                             return (<div key={product._id} className="searchProduct">

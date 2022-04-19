@@ -115,6 +115,10 @@
   border: 1px solid blue;
 }
 
+.showFilters{
+  display: none;
+}
+
 @media screen and (max-width: 1050px){
 
   .searchResultDiv {
@@ -134,6 +138,18 @@
   }
 
   .filters p{
+    font-size: .9em;
+  }
+
+  .filtersMobile{
+    width: 25%;
+  }
+
+  .filtersMobile h2{
+    font-size: 1.2em;
+  }
+
+  .filtersMobile p{
     font-size: .9em;
   }
 
@@ -177,6 +193,18 @@
     font-size: .9em;
   }
 
+  .filtersMobile{
+    width: 25%;
+  }
+
+  .filtersMobile h2{
+    font-size: 1.2em;
+  }
+
+  .filtersMobile p{
+    font-size: .9em;
+  }
+
   .searchResult h5{
     font-size: .8em;
   }
@@ -207,6 +235,7 @@
     margin-top: 6vh;
     display: flex;
     justify-content: space-between;
+    position: relative;
   }
 
   .searchResult{
@@ -218,11 +247,38 @@
     display: none;
   }
 
+  .filtersMobile{
+    position: absolute;
+    width: 40%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .showFilters{
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: -50px;
+    left: -5px;
+  }
+
   .filters h2{
     font-size: 1.2em;
   }
 
   .filters p{
+    font-size: .9em;
+  }
+
+  .filtersMobile h2{
+    font-size: 1.2em;
+  }
+
+  .filtersMobile p{
     font-size: .9em;
   }
 
@@ -259,12 +315,31 @@
     display: none;
   }
 
+  .filtersMobile{
+    position: absolute;
+    width: 60%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
   .filters h2{
     font-size: 1em;
   }
 
   .filters p{
     font-size: .8em;
+  }
+
+  .filtersMobile h2{
+    font-size: 1.2em;
+  }
+
+  .filtersMobile p{
+    font-size: .9em;
   }
 
   .searchResult h5{
