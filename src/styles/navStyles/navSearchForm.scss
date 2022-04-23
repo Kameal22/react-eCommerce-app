@@ -60,6 +60,22 @@
     @include marginCenter();
     margin-bottom: 0.5vh;
   }
+
+  .searchHints {
+    left: 25%;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .searchHints {
+    left: 25%;
+    width: 50%;
+  }
+
+  .searchHintName {
+    font-size: .9em;
+  }
 }
 
 @media screen and (max-width: 799px) {
@@ -72,5 +88,14 @@
     width: 70%;
     @include marginCenter();
     margin-bottom: 0.5vh;
+  }
+
+  .searchHints {
+    left: 15%;
+    width: 70%;
+  }
+
+  .searchHintName {
+    font-size: .8em;
   }
 }

@@ -179,6 +179,25 @@
     right: 20px;
     font-size: 1.4em !important;
   }
+
+  .popUpDiv {
+    width: 30%;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(48, 102, 202, 0.918);
+    border-radius: 15px;
+    text-align: center;
+    z-index: 999;
+  }
+  
+  .popUpDiv i {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 999px) {
@@ -211,6 +230,48 @@
 
   .specificProductPrice{
     font-size: 1.2em;
+  }
+
+  .popUpDiv {
+    width: 30%;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(48, 102, 202, 0.918);
+    border-radius: 15px;
+    text-align: center;
+    font-size: .9em;
+    z-index: 999;
+  }
+  
+  .popUpDiv i {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .popUpDiv {
+    width: 40%;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(48, 102, 202, 0.918);
+    border-radius: 15px;
+    text-align: center;
+    font-size: .8em;
+    z-index: 999;
+  }
+  
+  .popUpDiv i {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    cursor: pointer;
   }
 }
 
@@ -314,5 +375,25 @@
     top: 10px;
     right: 10px;
     font-size: 1.1em !important;
+  }
+
+  .popUpDiv {
+    width: 55%;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(48, 102, 202, 0.918);
+    border-radius: 15px;
+    text-align: center;
+    font-size: .8em;
+    z-index: 999;
+  }
+  
+  .popUpDiv i {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    cursor: pointer;
   }
 }

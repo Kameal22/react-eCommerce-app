@@ -115,7 +115,7 @@
   border: 1px solid blue;
 }
 
-.showFilters{
+#showFilters{
   display: none;
 }
 
@@ -258,12 +258,16 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
-  .showFilters{
+  #showFilters{
     display: block;
     position: absolute;
     cursor: pointer;
-    top: -50px;
-    left: -5px;
+    top: -20px;
+    left: 1px;
+  }
+
+  #showFilters:hover{
+    color: blue;
   }
 
   .filters h2{

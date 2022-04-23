@@ -21,3 +21,60 @@
   width: 40%;
   height: 40%;
 }
+
+@media screen and (max-width: 999px) {
+  .wishlistProduct {
+    width: 30%;
+  }
+
+  .wishlistProduct h5{
+    font-size: .8em;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .wishlistProduct {
+    width: 50%;
+  }
+
+  .wishlistProduct h5{
+    font-size: .8em;
+  }
+
+  .wishlistProduct img {
+    width: 35%;
+    height: 35%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .wishlistProduct {
+    width: 50%;
+  }
+
+  .wishlistProduct h5{
+    font-size: .8em;
+  }
+
+  .wishlistProduct img {
+    width: 30%;
+    height: 30%;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .wishlistProduct {
+    width: 100%;
+  }
+
+  .wishlistProduct h5{
+    font-size: .8em;
+  }
+
+  .wishlistProduct img {
+    width: 30%;
+    height: 30%;
+  }
+
+}

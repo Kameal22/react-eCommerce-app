@@ -55,7 +55,7 @@ const NavSearchForm: React.FC = () => {
         {filteredData.map((data: any) => {
           return (
             <Link key={uuid()} className="productLink" to={`/specificResult/${data.category}/${data._id}`}>
-              <p className="recProductName">{data.name}</p>
+              <p className="searchHintName">{data.name}</p>
             </Link>
           )
         })}

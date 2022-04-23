@@ -58,7 +58,7 @@ const SearchResult: React.FC = () => {
                     <NavLogo />
                 </div>
                 <div className="searchResultDiv">
-                    <p onClick={() => setShowingFilters(!showingFilters)} className="showFilters">SHOW FILTERS</p>
+                    <i onClick={() => setShowingFilters(!showingFilters)} style={showingFilters ? { fontSize: "1.8em", color: "blue" } : { fontSize: "1.8em" }} id="showFilters" className="bi bi-filter-left"></i>
                     <FilterResult filterAnythingButPriceResult={filterByAnythingButPriceFunc} filterPriceResult={filterByPriceFunc} clearFunc={clearFilters} products={products} productType={productType} showingFilters={showingFilters} />
                     <div className="searchResult">
                         {products.map(product => {
